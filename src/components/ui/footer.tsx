@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-primary text-white">
+    <footer className="text-white" style={{background: 'var(--gradient-footer)'}}>
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -79,7 +79,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-brand-gold" />
-                <span className="text-gray-300">+27 11 234 5678</span>
+                <span className="text-gray-300">0719835562</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-brand-gold" />

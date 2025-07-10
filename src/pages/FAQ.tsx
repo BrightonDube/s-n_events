@@ -249,10 +249,10 @@ export default function FAQ() {
                 </p>
                 <div className="space-y-2">
                   <p className="text-brand-primary font-medium">
-                    Nono: +27 64 984 1362
+                    Nono: 0649841362
                   </p>
                   <p className="text-brand-primary font-medium">
-                    Shanna: +27 71 983 5562
+                    Shanna: 0719835562
                   </p>
                 </div>
               </CardContent>

@@ -340,13 +340,13 @@ export default function BookConsultation() {
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
               <h3 className="font-semibold text-brand-accent mb-2">Nono Dube</h3>
-              <p className="text-brand-primary font-medium">+27 64 984 1362</p>
+              <p className="text-brand-primary font-medium">0649841362</p>
               <p className="text-sm text-muted-foreground">Director & Event Planner</p>
             </div>
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
               <h3 className="font-semibold text-brand-accent mb-2">Shanna Williams</h3>
-              <p className="text-brand-primary font-medium">+27 71 983 5562</p>
+              <p className="text-brand-primary font-medium">0719835562</p>
               <p className="text-sm text-muted-foreground">Director & Event Coordinator</p>
             </div>
           </div>

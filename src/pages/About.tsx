@@ -3,29 +3,25 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const teamMembers = [
   {
-    name: "Sarah Nkomo",
-    position: "Co-Founder & Creative Director",
-    bio: "With 12 years in event design, Sarah brings artistic vision and meticulous attention to detail to every project.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    name: "Nono",
+    role: "Co-Director",
+    image: "/api/placeholder/300/300",
+    bio: "With extensive experience in event planning and client relations, Nono brings passion and dedication to creating unforgettable celebrations.",
+    social: {
+      linkedin: "#",
+      instagram: "#"
+    }
   },
   {
-    name: "Nathan Mthembu",
-    position: "Co-Founder & Operations Manager",
-    bio: "Nathan's background in hospitality management ensures seamless execution and exceptional client service.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Thandiwe Molefe",
-    position: "Senior Event Coordinator",
-    bio: "Thandiwe specializes in corporate events and has coordinated over 200 successful business gatherings.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "David Chen",
-    position: "Lead Designer",
-    bio: "David's innovative design concepts and vendor relationships help bring unique visions to life.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-  },
+    name: "Shanna",
+    role: "Co-Director",
+    image: "/api/placeholder/300/300",
+    bio: "Shanna's creative vision and attention to detail ensure every event reflects our clients' unique style and exceeds their expectations.",
+    social: {
+      linkedin: "#",
+      instagram: "#"
+    }
+  }
 ];
 
 const values = [
@@ -212,7 +208,7 @@ export default function About() {
                     {member.name}
                   </h3>
                   <p className="text-brand-gold mb-3 font-medium">
-                    {member.position}
+                    {member.role}
                   </p>
                   <p className="text-muted-foreground text-sm">
                     {member.bio}

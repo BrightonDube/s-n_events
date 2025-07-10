@@ -223,8 +223,8 @@ export default function Services() {
                     <div className="text-2xl font-bold text-brand-navy mb-4">
                       {service.price}
                     </div>
-                    <Button className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy">
-                      Get Quote
+                    <Button className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy" asChild>
+                      <a href="/contact">Get Quote</a>
                     </Button>
                   </div>
                 </CardContent>
@@ -336,11 +336,11 @@ export default function Services() {
             proposal that fits your vision and budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold">
-              Get Free Quote
+            <Button size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold" asChild>
+              <a href="/contact">Get Free Quote</a>
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">
-              Schedule Consultation
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy" asChild>
+              <a href="/book-consultation">Schedule Consultation</a>
             </Button>
           </div>
         </div>

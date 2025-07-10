@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+27 11 234 5678", "+27 82 123 4567"],
+    details: ["0719835562", "0649841362"],
     description: "Call us during business hours"
   },
   {
@@ -290,7 +290,7 @@ export default function Contact() {
                       </p>
                       <Button 
                         className="bg-green-600 hover:bg-green-700 text-white"
-                        onClick={() => window.open('https://wa.me/27821234567', '_blank')}
+                        onClick={() => window.open('https://wa.me/27649841362', '_blank')}
                       >
                         Chat on WhatsApp
                       </Button>

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Calendar, User, Search, Tag, Clock } from "lucide-react";
+import { Calendar, User, Search, Tag, Clock, X } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const categories = [
   "All Posts",
@@ -312,8 +313,11 @@ At S&N Events, our décor team combines artistic vision with practical expertise
 ];
 
 export default function Blog() {
-  const [selectedCategory, setSelectedCategory] = useState("All Posts");
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Posts");
+  const [selectedPost, setSelectedPost] = useState<typeof blogPosts[0] | null>(null);
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = selectedCategory === "All Posts" || post.category === selectedCategory;
@@ -423,7 +427,11 @@ export default function Blog() {
                       ))}
                     </div>
 
-                    <Button variant="primary" className="w-full mt-4">
+                    <Button 
+                      variant="primary" 
+                      className="w-full mt-4"
+                      onClick={() => setSelectedPost(post)}
+                    >
                       Read Full Article
                     </Button>
                   </div>
@@ -460,8 +468,21 @@ export default function Blog() {
                 type="email"
                 placeholder="Enter your email address"
                 className="flex-1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <Button variant="primary">
+              <Button 
+                variant="primary"
+                onClick={() => {
+                  if (email) {
+                    toast({
+                      title: "Thank you for subscribing!",
+                      description: "You'll receive our latest updates in your inbox.",
+                    });
+                    setEmail("");
+                  }
+                }}
+              >
                 Subscribe
               </Button>
             </div>
@@ -483,6 +504,86 @@ export default function Blog() {
           </Button>
         </div>
       </section>
+
+      {/* Full Article Modal */}
+      {selectedPost && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center z-10">
+              <h2 className="font-serif text-2xl font-bold text-brand-accent">{selectedPost.title}</h2>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setSelectedPost(null)}
+                className="rounded-full"
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-4 w-4" />
+                  {selectedPost.date}
+                </div>
+                <div className="flex items-center gap-1">
+                  <User className="h-4 w-4" />
+                  {selectedPost.author}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="h-4 w-4" />
+                  {selectedPost.readTime}
+                </div>
+              </div>
+              
+              <img 
+                src={selectedPost.image} 
+                alt={selectedPost.title} 
+                className="w-full h-64 object-cover rounded-lg mb-6"
+              />
+              
+              <div className="prose prose-pink max-w-none">
+                {selectedPost.content.split('\n\n').map((paragraph, index) => {
+                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                    // It's a heading
+                    const heading = paragraph.replace(/\*\*/g, '');
+                    return <h3 key={index} className="font-bold text-xl my-4">{heading}</h3>;
+                  } else {
+                    // It's a regular paragraph
+                    return <p key={index} className="mb-4">{paragraph}</p>;
+                  }
+                })}
+              </div>
+              
+              <div className="mt-8 pt-4 border-t">
+                <h4 className="font-medium mb-2">Tags:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedPost.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded flex items-center gap-1"
+                    >
+                      <Tag className="h-3 w-3" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <div className="sticky bottom-0 bg-white p-4 border-t">
+              <Button 
+                variant="primary" 
+                onClick={() => setSelectedPost(null)}
+                className="w-full"
+              >
+                Close Article
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

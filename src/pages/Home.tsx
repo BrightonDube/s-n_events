@@ -125,7 +125,7 @@ export default function Home() {
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                <Button asChild variant="outline-white" size="lg">
                   <Link to="/gallery">View Our Work</Link>
                 </Button>
               </div>
@@ -282,13 +282,13 @@ export default function Home() {
             exceeds your expectations. Book your free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold">
+            <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold border border-brand-navy">
               <Link to="/contact">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">
+            <Button asChild variant="outline-white" size="lg">
               <Link to="/about">
                 <Users className="mr-2 h-5 w-5" />
                 Learn About Us

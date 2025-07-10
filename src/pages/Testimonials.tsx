@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Quote } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -199,7 +200,7 @@ export default function Testimonials() {
               Had an amazing event with us? We'd love to hear about your experience and share it with future clients.
             </p>
             <Button variant="primary" size="lg" asChild>
-              <a href="/contact">Submit Your Testimonial</a>
+              <Link to="/contact">Submit Your Testimonial</Link>
             </Button>
           </div>
         </div>
@@ -215,7 +216,7 @@ export default function Testimonials() {
             Let us create an unforgettable experience for your next event
           </p>
           <Button variant="accent" size="lg" asChild>
-            <a href="/contact">Book Your Consultation</a>
+            <Link to="/contact">Book Your Consultation</Link>
           </Button>
         </div>
       </section>

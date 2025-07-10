@@ -116,14 +116,9 @@ export function Footer() {
           <p className="text-gray-300 text-sm">
             © {new Date().getFullYear()} S&N Events. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm text-gray-300 mt-4 md:mt-0">
-            <Link to="/privacy" className="hover:text-brand-gold">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-brand-gold">
-              Terms of Service
-            </Link>
-          </div>
+          <p className="text-gray-300 text-sm mt-4 md:mt-0">
+            Created by Brighton Dube
+          </p>
         </div>
       </div>
     </footer>

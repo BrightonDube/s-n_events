@@ -36,23 +36,23 @@ All colors MUST be HSL.
     --input: 215 25% 90%;
     --ring: 215 32% 15%;
 
-    /* S&N Events Brand Colors */
-    --brand-navy: 215 32% 15%;
-    --brand-navy-light: 215 32% 25%;
-    --brand-gold: 43 96% 56%;
-    --brand-gold-light: 43 96% 66%;
-    --brand-champagne: 43 50% 85%;
-    --brand-cream: 43 20% 96%;
+    /* S&N Events Brand Colors - Pink/Rose Theme */
+    --brand-primary: 340 75% 65%;
+    --brand-primary-light: 340 75% 75%;
+    --brand-secondary: 340 50% 85%;
+    --brand-accent: 340 30% 25%;
+    --brand-cream: 340 20% 96%;
+    --brand-white: 0 0% 100%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-navy)), hsl(var(--brand-navy-light)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)), hsl(var(--brand-gold-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-navy)) 0%, hsl(var(--brand-navy-light)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-primary-light)), hsl(var(--brand-secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-accent)) 0%, hsl(var(--brand-primary)) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--brand-navy) / 0.3);
-    --shadow-gold: 0 5px 20px -5px hsl(var(--brand-gold) / 0.4);
-    --shadow-subtle: 0 2px 8px -2px hsl(var(--brand-navy) / 0.1);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--brand-primary) / 0.3);
+    --shadow-primary: 0 5px 20px -5px hsl(var(--brand-primary) / 0.4);
+    --shadow-subtle: 0 2px 8px -2px hsl(var(--brand-accent) / 0.1);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

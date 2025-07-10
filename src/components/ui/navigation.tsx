@@ -25,7 +25,7 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="font-serif text-2xl font-bold text-brand-navy">
+          <Link to="/" className="font-serif text-2xl font-bold text-brand-accent">
             S&N Events
           </Link>
 
@@ -36,9 +36,9 @@ export function Navigation() {
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-gold",
+                  "text-sm font-medium transition-colors hover:text-brand-primary",
                   isActive(item.href)
-                    ? "text-brand-gold font-semibold"
+                    ? "text-brand-primary font-semibold"
                     : "text-foreground"
                 )}
               >
@@ -47,17 +47,14 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Desktop Contact Info & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <Phone className="h-4 w-4" />
-              <span>+27 11 234 5678</span>
-            </div>
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center">
             <Button 
               asChild 
-              className="bg-gradient-gold hover:shadow-gold transition-all duration-300"
+              variant="primary"
+              className="shadow-primary transition-all duration-300"
             >
-              <Link to="/contact">Book Consultation</Link>
+              <Link to="/book-consultation">Book Consultation</Link>
             </Button>
           </div>
 

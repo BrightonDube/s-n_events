@@ -53,12 +53,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				brand: {
-					navy: 'hsl(var(--brand-navy))',
-					'navy-light': 'hsl(var(--brand-navy-light))',
-					gold: 'hsl(var(--brand-gold))',
-					'gold-light': 'hsl(var(--brand-gold-light))',
-					champagne: 'hsl(var(--brand-champagne))',
-					cream: 'hsl(var(--brand-cream))'
+					primary: 'hsl(var(--brand-primary))',
+					'primary-light': 'hsl(var(--brand-primary-light))',
+					secondary: 'hsl(var(--brand-secondary))',
+					accent: 'hsl(var(--brand-accent))',
+					cream: 'hsl(var(--brand-cream))',
+					white: 'hsl(var(--brand-white))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -78,12 +78,12 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-secondary': 'var(--gradient-secondary)',
 				'gradient-hero': 'var(--gradient-hero)'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
-				'gold': 'var(--shadow-gold)',
+				'primary': 'var(--shadow-primary)',
 				'subtle': 'var(--shadow-subtle)'
 			},
 			fontFamily: {

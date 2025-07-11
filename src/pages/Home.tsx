@@ -114,27 +114,27 @@ const services = [
 
 const testimonials = [
   {
-    name: "Sarah Thompson",
+    name: "Sarah Dlamini",
     text: "S&N Events made our wedding absolutely perfect. Every detail was flawlessly executed!",
     rating: 5,
   },
   {
-    name: "Michael Roberts",
+    name: "Duduzani Mthembu",
     text: "Outstanding corporate event management. Professional, creative, and stress-free experience.",
     rating: 5,
   },
   {
-    name: "Lisa Johnson",
+    name: "Oratile Molefe",
     text: "They turned our vision into reality. Couldn't have asked for a better team!",
     rating: 5,
   },
 ];
 
 const stats = [
-  { number: "500+", label: "Events Planned" },
+  { number: "15+", label: "Events Planned" },
   { number: "Fresh", label: "Innovative Approach" },
   { number: "100%", label: "Client Satisfaction" },
-  { number: "50+", label: "Vendor Partners" },
+  { number: "7+", label: "Vendor Partners" },
 ];
 
 export default function Home() {

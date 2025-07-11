@@ -166,12 +166,12 @@ export default function Services() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-primary text-white">
+      <section className="bg-gradient-hero text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
             Our Services
           </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
             From intimate gatherings to grand celebrations, we offer comprehensive 
             event planning services tailored to make your special day unforgettable.
           </p>

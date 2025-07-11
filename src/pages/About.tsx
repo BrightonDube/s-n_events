@@ -51,18 +51,16 @@ export default function About() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-primary text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
-              About S&N Events
-            </h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
-              Established in 2009, S&N Events has grown from a small startup to become 
-              one of Randburg's most trusted event planning companies, creating magical 
-              moments for over 500 clients across South Africa.
-            </p>
-          </div>
+      <section className="bg-gradient-hero text-white py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            About S&N Events
+          </h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up leading-relaxed">
+            Established in 2009, S&N Events has grown from a small startup to become 
+            one of Randburg's most trusted event planning companies, creating magical 
+            moments for over 500 clients across South Africa.
+          </p>
         </div>
       </section>
 
@@ -160,7 +158,7 @@ export default function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {values.map((value, index) => (
               <Card key={index} className="text-center hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-6">
@@ -193,9 +191,9 @@ export default function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-elegant transition-all duration-300">
+              <Card key={index} className="overflow-hidden hover:shadow-elegant transition-all duration-300 w-full md:w-[380px] mx-auto">
                 <div className="aspect-square overflow-hidden">
                   <img
                     src={member.image}
@@ -220,57 +218,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Awards & Recognition */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
-              Awards & Recognition
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Our commitment to excellence has been recognized by industry leaders
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <Award className="h-12 w-12 text-brand-gold mx-auto mb-4" />
-                <h3 className="font-semibold text-xl text-brand-navy mb-2">
-                  Best Wedding Planner 2023
-                </h3>
-                <p className="text-muted-foreground">
-                  South African Wedding Awards
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <Award className="h-12 w-12 text-brand-gold mx-auto mb-4" />
-                <h3 className="font-semibold text-xl text-brand-navy mb-2">
-                  Outstanding Corporate Events
-                </h3>
-                <p className="text-muted-foreground">
-                  Gauteng Business Excellence Awards 2022
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center">
-              <CardContent className="p-8">
-                <Award className="h-12 w-12 text-brand-gold mx-auto mb-4" />
-                <h3 className="font-semibold text-xl text-brand-navy mb-2">
-                  Customer Service Excellence
-                </h3>
-                <p className="text-muted-foreground">
-                  Randburg Chamber of Commerce 2021
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

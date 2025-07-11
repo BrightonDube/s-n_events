@@ -57,9 +57,9 @@ export default function About() {
             About S&N Events
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up leading-relaxed">
-            Established in 2009, S&N Events has grown from a small startup to become 
-            one of Randburg's most trusted event planning companies, creating magical 
-            moments for over 500 clients across South Africa.
+            Established in June 2025, S&N Events is Randburg's newest premier event planning company, 
+            bringing fresh creativity and innovative ideas to create magical moments for our clients 
+            across South Africa.
           </p>
         </div>
       </section>
@@ -74,15 +74,16 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Sarah and Nathan founded S&N Events with a simple yet powerful vision: 
+                  Nono and Shanna founded S&N Events in June 2025 with a simple yet powerful vision: 
                   to create extraordinary experiences that celebrate life's most precious moments. 
-                  What started as a passion project in a small Randburg office has evolved 
-                  into a full-service event planning company.
+                  What started as a passion project in a small Randburg office has quickly taken shape
+                  as a full-service event planning company.
                 </p>
                 <p>
-                  Over the years, we've had the privilege of planning intimate garden parties, 
-                  lavish weddings, corporate galas, and everything in between. Each event has 
-                  taught us something new and reinforced our commitment to excellence.
+                  Since our launch, we've been building relationships with premier venues and vendors,
+                  designing unique event concepts, and creating customized experiences for our clients.
+                  Even in our short time operating, each event has taught us something valuable and
+                  reinforced our commitment to excellence.
                 </p>
                 <p>
                   Today, our team of dedicated professionals brings together diverse talents 
@@ -101,8 +102,8 @@ export default function About() {
               </div>
               <div className="absolute -bottom-6 -right-6 bg-brand-gold text-brand-navy p-6 rounded-lg shadow-gold">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">15+</div>
-                  <div className="text-sm">Years of Excellence</div>
+                  <div className="text-3xl font-bold">June</div>
+                  <div className="text-sm">2025 Founded</div>
                 </div>
               </div>
             </div>
@@ -186,8 +187,8 @@ export default function About() {
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our passionate team of event professionals brings years of experience 
-              and creative expertise to every project.
+              Our passionate team of event professionals brings creative expertise
+              and fresh perspectives to every project.
             </p>
           </div>
           

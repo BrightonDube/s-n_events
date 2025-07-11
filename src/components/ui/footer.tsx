@@ -83,13 +83,12 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-brand-gold" />
-                <span className="text-gray-300">info@snevents.co.za</span>
+                <span className="text-gray-300">info@snnevents.co.za</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-brand-gold mt-1" />
                 <span className="text-gray-300">
-                  Randburg, Johannesburg<br />
-                  South Africa
+                  340 Surrey Avenue, Ferndale, Randburg, 2194
                 </span>
               </div>
             </div>
@@ -103,7 +102,7 @@ export function Footer() {
                   placeholder="Your email"
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                 />
-                <Button className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light">
+                <Button variant="accent">
                   Subscribe
                 </Button>
               </div>

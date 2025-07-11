@@ -16,50 +16,50 @@ const galleryItems = [
   {
     id: 1,
     category: "weddings",
-    title: "Elegant Garden Wedding",
-    description: "A stunning outdoor ceremony with romantic floral arrangements",
+    title: "Shepstone Gardens Wedding",
+    description: "A blend of traditional and modern elements in a lush garden setting",
     image: "/src/assets/hero-wedding.jpg",
-    client: "Sarah & Michael"
+    client: "Thabo & Lerato"
   },
   {
     id: 2,
     category: "corporate",
-    title: "Annual Company Gala",
-    description: "Sophisticated corporate event with modern décor and lighting",
+    title: "Vodacom Annual Conference",
+    description: "Sophisticated corporate event at Sandton Convention Centre",
     image: "/src/assets/hero-corporate.jpg",
-    client: "Tech Solutions Ltd"
+    client: "Vodacom South Africa"
   },
   {
     id: 3,
     category: "parties",
-    title: "Birthday Celebration",
-    description: "Vibrant party setup with custom decorations and entertainment",
+    title: "40th at Melrose Arch",
+    description: "Vibrant birthday celebration with custom decor and entertainment",
     image: "/src/assets/hero-party.jpg",
-    client: "Jessica's 30th"
+    client: "Priya's 40th"
   },
   {
     id: 4,
     category: "weddings",
-    title: "Classic White Wedding",
-    description: "Timeless elegance with white roses and crystal details",
+    title: "Lourensford Wine Estate Wedding",
+    description: "Cape Dutch elegance with vineyard views and protea arrangements",
     image: "/src/assets/hero-wedding.jpg",
-    client: "Emma & David"
+    client: "Johan & Annika"
   },
   {
     id: 5,
     category: "corporate",
-    title: "Product Launch Event",
-    description: "Modern setup for tech product unveiling with interactive displays",
+    title: "Standard Bank Year-End Function",
+    description: "Modern African-inspired decor with sophisticated networking areas",
     image: "/src/assets/hero-corporate.jpg",
-    client: "Innovation Corp"
+    client: "Standard Bank"
   },
   {
     id: 6,
     category: "baby",
-    title: "Garden Baby Shower",
-    description: "Soft pastels and floral arrangements for expecting mother",
+    title: "Ndebele-Inspired Baby Shower",
+    description: "Cultural elements with modern touches at The Westcliff",
     image: "/src/assets/hero-party.jpg",
-    client: "Lisa's Baby Shower"
+    client: "Nthabiseng's Baby Shower"
   }
 ];
 
@@ -80,7 +80,7 @@ export default function Gallery() {
             Our Gallery
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
-            Explore our portfolio of unforgettable events and celebrations
+            Explore our portfolio of unforgettable South African events and celebrations
           </p>
         </div>
       </section>
@@ -177,10 +177,10 @@ export default function Gallery() {
       <section className="py-16 bg-gradient-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">
-            Ready to Create Your Dream Event?
+            Ready to Create Your Dream Event in Johannesburg?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let us bring your vision to life with our expert planning and stunning décor
+            Let us bring your South African celebration to life with our local expertise and stunning décor
           </p>
           <Button variant="accent" size="lg" asChild>
             <a href="/contact">Start Planning Today</a>

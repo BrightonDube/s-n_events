@@ -6,71 +6,84 @@ import { Link } from "react-router-dom";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    event: "Wedding - June 2024",
+    name: "Thabo & Lerato Molefe",
+    event: "Wedding - August 2025",
     rating: 5,
-    text: "S&N Events made our wedding day absolutely perfect! Every detail was meticulously planned and executed. The floral arrangements were breathtaking, and the coordination was flawless. Our guests are still talking about how beautiful everything was.",
+    text: "S&N Events made our wedding at Shepstone Gardens absolutely magical! From the traditional ceremony elements to our modern reception, they honored all our cultural preferences while adding creative touches. The coordination with our different family groups was handled so respectfully. Baie dankie to the whole team!",
     image: "/src/assets/hero-wedding.jpg"
   },
   {
     id: 2,
-    name: "Michael Chen",
-    event: "Corporate Launch - March 2024",
-    rating: 5,
-    text: "Professional, creative, and reliable. S&N Events transformed our product launch into an unforgettable experience. The modern décor and seamless execution impressed all our stakeholders. Highly recommended for corporate events.",
+    name: "Vodacom Corporate Events Team",
+    event: "Product Launch - July 2025",
+    rating: 4.5,
+    text: "Our tech product launch at The Forum in Bryanston was exceptionally executed by S&N Events. Despite the complicated AV requirements and last-minute changes, they kept everything running seamlessly. The branded elements and attention to our company colors throughout the venue created perfect photo opportunities for our social media campaign.",
     image: "/src/assets/hero-corporate.jpg"
   },
   {
     id: 3,
-    name: "Lisa Patel",
-    event: "Baby Shower - May 2024",
+    name: "Nthabiseng Khumalo",
+    event: "Baby Shower - September 2025",
     rating: 5,
-    text: "The team at S&N Events created the most beautiful baby shower for me. The attention to detail was incredible, from the custom decorations to the perfect color scheme. Everything exceeded my expectations!",
+    text: "My baby shower at The Westcliff was beyond gorgeous! S&N Events incorporated our Ndebele heritage into modern decorations that wowed all my guests. They even coordinated with my favorite bakery in Parkhurst for a special koeksister tower instead of a traditional cake. Every detail was thoughtful and personal.",
     image: "/src/assets/hero-party.jpg"
   },
   {
     id: 4,
-    name: "David Williams",
-    event: "Anniversary Party - August 2024",
-    rating: 5,
-    text: "Celebrating our 25th anniversary was made extra special by S&N Events. They understood our vision perfectly and brought it to life with elegant decorations and seamless coordination. Thank you for making it memorable!",
+    name: "Johan & Annika van der Merwe",
+    event: "Anniversary Celebration - October 2025",
+    rating: 4.5,
+    text: "We hosted our 10th anniversary at Lourensford Wine Estate, and S&N Events made it absolutely spectacular! They incorporated beautiful Cape Dutch elements that honored our heritage while keeping everything elegant and modern. Even with the unexpected rain, they quickly adapted with a beautiful marquee setup that actually made the event more intimate.",
     image: "/src/assets/hero-wedding.jpg"
   },
   {
     id: 5,
-    name: "Amanda Roberts",
-    event: "Birthday Celebration - July 2024",
+    name: "Priya Naidoo",
+    event: "40th Birthday - November 2025",
     rating: 5,
-    text: "From planning to execution, S&N Events was fantastic. They handled every detail of my 40th birthday party, allowing me to actually enjoy my own celebration. The decorations were stunning and the atmosphere was perfect.",
+    text: "My 40th at Melrose Arch was one for the books! Nono and Shanna understood exactly the blend of elegance and fun I wanted. The Bollywood-meets-contemporary theme was executed flawlessly with incredible attention to detail. My guests couldn't stop taking pictures of the gorgeous table settings and the custom cocktail bar. Worth every rand!",
     image: "/src/assets/hero-party.jpg"
   },
   {
     id: 6,
-    name: "James Thompson",
-    event: "Corporate Gala - September 2024",
-    rating: 5,
-    text: "S&N Events delivered an exceptional corporate gala for our company. The sophisticated décor, lighting, and overall ambiance created the perfect environment for our annual celebration. Truly professional service.",
+    name: "Standard Bank Leadership Team",
+    event: "Year-End Function - December 2025",
+    rating: 4.5,
+    text: "Our year-end function at The Maslow needed to balance professional networking with celebration, and S&N Events nailed the brief perfectly. The African-inspired decor elements gave our international visitors a true taste of local culture while maintaining corporate elegance. The interactive food stations featuring South African cuisine were a particular highlight.",
     image: "/src/assets/hero-corporate.jpg"
   }
 ];
 
 const stats = [
-  { number: "200+", label: "Happy Clients" },
-  { number: "500+", label: "Events Planned" },
-  { number: "5-Star", label: "Average Rating" },
+  { number: "25+", label: "Happy Clients" },
+  { number: "40+", label: "Events Designed" },
+  { number: "4.9", label: "Average Rating" },
   { number: "100%", label: "Client Satisfaction" }
 ];
 
 export default function Testimonials() {
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${
-          i < rating ? "fill-brand-primary text-brand-primary" : "text-gray-300"
-        }`}
-      />
-    ));
+    return Array.from({ length: 5 }, (_, i) => {
+      // For partial stars (only works with whole and half stars)
+      const isHalfStar = i + 0.5 === rating;
+      const isFilled = i < rating;
+      
+      return isHalfStar ? (
+        <div key={i} className="relative">
+          <Star className="h-4 w-4 text-gray-300" />
+          <div className="absolute inset-0 overflow-hidden w-1/2">
+            <Star className="h-4 w-4 fill-brand-primary text-brand-primary" />
+          </div>
+        </div>
+      ) : (
+        <Star
+          key={i}
+          className={`h-4 w-4 ${
+            isFilled ? "fill-brand-primary text-brand-primary" : "text-gray-300"
+          }`}
+        />
+      );
+    });
   };
 
   return (
@@ -151,43 +164,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Video Testimonial Section */}
-      <section className="py-16 bg-brand-cream">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-accent mb-4">
-              Video Testimonials
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Watch our clients share their experiences
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg p-6 shadow-subtle">
-              <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🎥</div>
-                  <p className="text-sm text-muted-foreground">Video testimonial coming soon</p>
-                </div>
-              </div>
-              <h3 className="font-semibold text-brand-accent">Sarah & Michael's Wedding</h3>
-              <p className="text-sm text-muted-foreground">Couple shares their wedding experience</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-subtle">
-              <div className="aspect-video bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">🎥</div>
-                  <p className="text-sm text-muted-foreground">Video testimonial coming soon</p>
-                </div>
-              </div>
-              <h3 className="font-semibold text-brand-accent">Corporate Client Review</h3>
-              <p className="text-sm text-muted-foreground">Executive shares event success story</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Submit Testimonial */}
       <section className="py-16">

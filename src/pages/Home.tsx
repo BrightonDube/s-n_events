@@ -1,8 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Star, Calendar, Users, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Star, Calendar, Users, Award, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 import heroWedding from "@/assets/hero-wedding.jpg";
 import heroCorporate from "@/assets/hero-corporate.jpg";
 import heroParty from "@/assets/hero-party.jpg";
@@ -27,24 +35,80 @@ const heroSlides = [
 
 const services = [
   {
+    icon: "💒",
     title: "Wedding Planning",
-    description: "Complete wedding coordination from concept to execution",
-    icon: "💐",
+    description: "Comprehensive planning for your perfect day, from venues to vendors.",
+    details: {
+      fullDescription: "Our wedding planning service takes care of every detail of your special day. We handle venue selection, vendor coordination, decor design, timeline management, and on-the-day coordination. With S&N Events, you can enjoy your wedding day stress-free, knowing that every aspect is being handled with professionalism and care.",
+      features: [
+        "Personalized consultation to understand your vision",
+        "Venue selection and management",
+        "Vendor coordination and negotiations",
+        "Custom decor design and setup",
+        "Timeline creation and management",
+        "Budget planning and tracking",
+        "Day-of coordination services",
+        "Post-event cleanup coordination",
+      ],
+      timeline: "Planning typically begins 8-12 months before your wedding date",
+    },
   },
   {
+    icon: "💼",
     title: "Corporate Events",
-    description: "Professional business events that leave lasting impressions",
-    icon: "🏢",
+    description: "Professional event management for company gatherings and conferences.",
+    details: {
+      fullDescription: "Our corporate event planning services are designed to create professional, engaging, and memorable business events. From product launches to annual conferences, we handle all logistics and details so you can focus on your business objectives and connecting with your attendees.",
+      features: [
+        "Venue sourcing and management",
+        "Audio-visual equipment setup",
+        "Speaker and talent coordination",
+        "Catering selection and management",
+        "Registration and attendance tracking",
+        "Marketing material coordination",
+        "Transportation logistics",
+        "Post-event reporting and analysis",
+      ],
+      timeline: "Planning typically begins 3-6 months before your event date",
+    },
   },
   {
-    title: "Private Parties",
-    description: "Intimate celebrations tailored to your vision",
     icon: "🎉",
+    title: "Party Planning",
+    description: "Intimate celebrations tailored to your vision",
+    details: {
+      fullDescription: "Make your special occasion truly memorable with our party planning services. Whether it's a milestone birthday, anniversary celebration, baby shower, or just a gathering of friends, we'll handle everything from theme development to execution so you can enjoy being a guest at your own event.",
+      features: [
+        "Theme conceptualization and design",
+        "Venue decoration and setup",
+        "Entertainment and activity planning",
+        "Catering and beverage coordination",
+        "Invitation design and RSVP management",
+        "Photography and videography arrangements",
+        "Party favors and gifts coordination",
+        "On-site event management",
+      ],
+      timeline: "Planning typically begins 1-3 months before your event date",
+    },
   },
   {
-    title: "Event Décor",
-    description: "Stunning decorations that transform any space",
     icon: "✨",
+    title: "Event Décor",
+    description: "Beautiful, customized decorations that bring your vision to life.",
+    details: {
+      fullDescription: "Transform any space into a breathtaking environment with our custom event décor services. Our expert designers will create a personalized look that reflects your vision and exceeds your expectations, from elegant floral arrangements to dramatic lighting and immersive themed environments.",
+      features: [
+        "Custom design conceptualization",
+        "Floral arrangements and installations",
+        "Lighting design and setup",
+        "Furniture and linen selection",
+        "Table settings and centerpieces",
+        "Backdrop and stage design",
+        "Entrance and focal point décor",
+        "Themed props and accessories",
+      ],
+      timeline: "Planning typically begins 2-4 months before your event date",
+    },
   },
 ];
 
@@ -68,13 +132,14 @@ const testimonials = [
 
 const stats = [
   { number: "500+", label: "Events Planned" },
-  { number: "15+", label: "Years Experience" },
+  { number: "Fresh", label: "Innovative Approach" },
   { number: "100%", label: "Client Satisfaction" },
   { number: "50+", label: "Vendor Partners" },
 ];
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -93,6 +158,59 @@ export default function Home() {
 
   return (
     <div className="pt-16">
+      {/* Service Detail Modal */}
+      <Dialog open={!!selectedService} onOpenChange={(open) => !open && setSelectedService(null)}>
+        <DialogContent className="sm:max-w-[600px]">
+          <DialogHeader>
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-2xl font-serif text-brand-navy flex items-center">
+                <span className="text-3xl mr-2">{selectedService?.icon}</span>
+                {selectedService?.title}
+              </DialogTitle>
+              <DialogClose className="h-6 w-6 text-muted-foreground hover:text-brand-navy">
+                <X className="h-6 w-6" />
+              </DialogClose>
+            </div>
+            <DialogDescription className="text-lg text-muted-foreground pt-2">
+              {selectedService?.description}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="mt-4 space-y-6">
+            <div>
+              <p className="text-muted-foreground leading-relaxed">
+                {selectedService?.details.fullDescription}
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-medium text-brand-navy mb-2">What We Offer:</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                {selectedService?.details.features.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-brand-gold mr-2">•</span>
+                    <span className="text-muted-foreground text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-brand-cream/30 p-4 rounded-md">
+              <p className="text-sm text-brand-navy">
+                <span className="font-medium">Planning Timeline: </span>
+                {selectedService?.details.timeline}
+              </p>
+            </div>
+
+            <div className="pt-4 flex justify-center">
+              <Button asChild className="bg-gradient-gold hover:shadow-gold text-brand-navy">
+                <Link to="/contact">Request Quote</Link>
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
         {heroSlides.map((slide, index) => (
@@ -109,7 +227,6 @@ export default function Home() {
             <div className="absolute inset-0 bg-brand-navy/60" />
           </div>
         ))}
-        
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
@@ -169,8 +286,8 @@ export default function Home() {
               Premier Events Company in Randburg
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              With over 15 years of experience, S&N Events has been creating extraordinary 
-              celebrations across South Africa. We specialize in turning your vision into 
+              Founded in June 2025, S&N Events brings fresh perspectives and innovative ideas to
+              event planning across South Africa. We specialize in turning your vision into
               reality with meticulous planning, creative design, and flawless execution.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -195,11 +312,11 @@ export default function Home() {
               Our Signature Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From intimate gatherings to grand celebrations, we create memorable 
+              From intimate gatherings to grand celebrations, we create memorable
               experiences tailored to your unique style and requirements.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
@@ -213,14 +330,18 @@ export default function Home() {
                   <p className="text-muted-foreground mb-4">
                     {service.description}
                   </p>
-                  <Button variant="ghost" className="text-brand-gold hover:text-brand-navy">
+                  <Button
+                    variant="ghost"
+                    className="text-brand-gold hover:text-brand-navy"
+                    onClick={() => setSelectedService(service)}
+                  >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Button asChild size="lg" className="bg-gradient-primary text-white hover:shadow-elegant">
               <Link to="/services">

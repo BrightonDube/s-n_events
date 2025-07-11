@@ -317,22 +317,31 @@ export default function Contact() {
           
           <div className="max-w-4xl mx-auto">
             <Card className="overflow-hidden shadow-elegant">
-              <div className="aspect-video bg-gray-200 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="h-12 w-12 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Interactive Map</p>
-                  <p className="text-sm">
-                    123 Main Street, Randburg, Johannesburg, 2194
-                  </p>
-                  <Button 
-                    variant="outline" 
-                    className="mt-4"
-                    onClick={() => window.open('https://maps.google.com/?q=Randburg,+South+Africa', '_blank')}
-                  >
-                    Open in Google Maps
-                  </Button>
-                </div>
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.004639521842!2d28.0061073!3d-26.1009118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957483f05efa9b%3A0x76d7d9c7e3b757fa!2s340%20Surrey%20Ave%2C%20Ferndale%2C%20Randburg%2C%202194!5e0!3m2!1sen!2sza!4v1656338056978!5m2!1sen!2sza"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="S&N Events Office Location"
+                ></iframe>
               </div>
+              <CardContent className="p-4 text-center">
+                <p className="text-sm font-medium text-brand-navy">
+                  340 Surrey Avenue, Ferndale, Randburg, 2194
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="mt-2 text-sm"
+                  onClick={() => window.open('https://maps.google.com/?q=340+Surrey+Avenue,+Ferndale,+Randburg,+2194', '_blank')}
+                  size="sm"
+                >
+                  Open in Google Maps
+                </Button>
+              </CardContent>
             </Card>
           </div>
         </div>

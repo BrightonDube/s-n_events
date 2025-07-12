@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar, User, Search, Tag, Clock, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import Markdown from "@/components/Markdown";
 
 const categories = [
   "All Posts",
@@ -55,7 +56,7 @@ Remember why you're doing this - to celebrate your love. Don't get lost in perfe
 At S&N Events, we guide couples through every step of this journey, ensuring your special day reflects your unique love story while honoring South African traditions and beauty.`,
     category: "Wedding Planning",
     author: "Nono",
-    date: "2024-12-15",
+    date: "2025-06-25",
     readTime: "8 min read",
     image: "/src/assets/sa-wedding-decor6.jpg",
     tags: ["Wedding Tips", "Planning", "South Africa", "Budget"]
@@ -159,7 +160,7 @@ Events are becoming more inclusive and culturally aware:
 At S&N Events, we stay ahead of these trends to deliver cutting-edge corporate experiences that resonate with modern South African businesses and their global partners.`,
     category: "Corporate Events",
     author: "Shanna",
-    date: "2024-12-10",
+    date: "2025-06-25",
     readTime: "12 min read",
     image: "/src/assets/corporate-2.jpg",
     tags: ["Corporate Events", "Trends", "2025", "Business", "Technology"]
@@ -305,7 +306,7 @@ South African events celebrate diversity:
 At S&N Events, our décor team combines artistic vision with practical expertise to create spaces that not only look beautiful but also function perfectly for your event's unique needs.`,
     category: "Décor Ideas",
     author: "Nono",
-    date: "2024-12-05",
+    date: "2025-06-25",
     readTime: "10 min read",
     image: "/src/assets/muse-concepts-017.jpg",
     tags: ["Décor", "Design", "Color Psychology", "Lighting", "Atmosphere"]
@@ -543,10 +544,8 @@ export default function Blog() {
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
               
-              import ReactMarkdown from 'react-markdown';
-
               <div className="prose prose-pink max-w-none">
-                <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
+                <Markdown>{selectedPost.content}</Markdown>
               </div>
               
               <div className="mt-8 pt-4 border-t">

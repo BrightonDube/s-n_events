@@ -1,0 +1,12 @@
+---
+hooks:
+  pre_deploy:
+    - /bin/echo "Starting deployment on cPanel..."
+  post_pull:
+    - /bin/echo "Installing dependencies..."
+    - /usr/local/bin/npm ci
+    - /bin/echo "Building project..."
+    - /usr/local/bin/npm run build
+    - /bin/echo "Build complete."
+  post_deploy:
+    - /bin/echo "Deployment finished!"

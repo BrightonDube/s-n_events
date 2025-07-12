@@ -7,6 +7,9 @@ on:
   push:
     # ...but only when we push to the "main" branch. You can change this to "master" if you use that.
     branches: [ "main" ]
+    # This adds the manual "Run workflow" button in the GitHub Actions UI.
+  workflow_dispatch:
+    
 
 # This section defines the actual work to be done.
 jobs:

@@ -1,5 +1,5 @@
 import { Check, Target, Users, PartyPopper, Wine, ChefHat, Palette } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -170,11 +170,11 @@ export default function Services() {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
-              Our Services
-            </h1>
+            Our Services
+          </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
               Comprehensive event planning and décor services for intimate gatherings and boutique celebrations across South Africa
-            </p>
+          </p>
           </div>
         </div>
       </section>
@@ -221,9 +221,9 @@ export default function Services() {
                   </div>
                   
                   <div className="pt-4 border-t">
-                    <Button className="w-full" variant="primary" asChild>
+                    <HoverButton className="w-full" variant="primary" asChild>
                       <a href="/contact">Get Quote</a>
-                    </Button>
+                    </HoverButton>
                   </div>
                 </CardContent>
               </Card>
@@ -336,12 +336,12 @@ export default function Services() {
             personalized experience that exceeds your expectations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-primary text-brand-accent hover:bg-brand-primary-light font-semibold" asChild>
+            <HoverButton size="lg" className="bg-brand-primary text-brand-accent hover:bg-brand-primary-light font-semibold" asChild>
               <a href="/contact">Get Free Quote</a>
-            </Button>
-            <Button variant="secondary" size="lg" asChild>
+            </HoverButton>
+            <HoverButton variant="secondary" size="lg" asChild>
               <a href="/book-consultation">Schedule Consultation</a>
-            </Button>
+            </HoverButton>
           </div>
         </div>
       </section>

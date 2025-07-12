@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -48,13 +48,12 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
-            <Button 
-              asChild 
+            <HoverButton 
               variant="primary"
               className="shadow-primary transition-all duration-300"
             >
               <Link to="/contact">Book Consultation</Link>
-            </Button>
+            </HoverButton>
           </div>
 
           {/* Mobile menu button */}
@@ -99,11 +98,11 @@ export function Navigation() {
                   <Mail className="h-4 w-4" />
                   <span>info@snnevents.co.za</span>
                 </div>
-                <Button asChild variant="outline" className="w-full">
+                <HoverButton variant="outline" className="w-full">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Book Consultation
                   </Link>
-                </Button>
+                </HoverButton>
               </div>
             </div>
           </div>

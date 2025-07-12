@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -72,9 +72,9 @@ export default function BookConsultation() {
             <p className="text-muted-foreground mb-6">
               Thank you for booking a consultation with S&N Events. We'll contact you within 24 hours to confirm your appointment details.
             </p>
-            <Button variant="primary" onClick={() => setIsSubmitted(false)}>
+            <HoverButton variant="primary" onClick={() => setIsSubmitted(false)}>
               Book Another Consultation
-            </Button>
+            </HoverButton>
           </CardContent>
         </Card>
       </div>
@@ -262,7 +262,7 @@ export default function BookConsultation() {
                     <Label>Consultation Mode *</Label>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {consultationModes.map((mode) => (
-                        <Button
+                        <HoverButton
                           key={mode.value}
                           type="button"
                           variant={formData.consultationMode === mode.value ? "primary" : "secondary"}
@@ -271,7 +271,7 @@ export default function BookConsultation() {
                         >
                           <span className="mr-2">{mode.icon}</span>
                           {mode.label}
-                        </Button>
+                        </HoverButton>
                       ))}
                     </div>
                   </div>
@@ -324,9 +324,9 @@ export default function BookConsultation() {
 
               {/* Submit Button */}
               <div className="text-center">
-                <Button type="submit" variant="primary" size="lg" className="px-8">
+                <HoverButton type="submit" variant="primary" size="lg" className="px-8">
                   Book Consultation
-                </Button>
+                </HoverButton>
                 <p className="text-sm text-muted-foreground mt-4">
                   We'll contact you within 24 hours to confirm your consultation
                 </p>

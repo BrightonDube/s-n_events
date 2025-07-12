@@ -104,7 +104,7 @@ All colors MUST be HSL.
   --gradient-primary: linear-gradient(135deg, hsl(340 82% 67%) 0%, hsl(340 75% 60%) 100%);
   --gradient-footer: #3F232C;
 
-  --radius: 0.5rem;
+    --radius: 0.5rem;
 
   --color-sidebar-background: 0 0% 98%;
   --color-sidebar-foreground: 240 5.3% 26.1%;
@@ -114,7 +114,7 @@ All colors MUST be HSL.
   --color-sidebar-accent-foreground: 240 5.9% 10%;
   --color-sidebar-border: 220 13% 91%;
   --color-sidebar-ring: 217.2 91.2% 59.8%;
-}
+  }
 
 /* Gradient utility classes */
 .bg-gradient-primary {

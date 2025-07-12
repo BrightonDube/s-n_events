@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { Calendar, Users, Heart, Building, Baby, Gift } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
@@ -109,7 +109,7 @@ export default function Gallery() {
             {categories.map((category) => {
               const Icon = category.icon;
               return (
-                <Button
+                <HoverButton
                   key={category.id}
                   variant={activeCategory === category.id ? "primary" : "secondary"}
                   onClick={() => setActiveCategory(category.id)}
@@ -117,7 +117,7 @@ export default function Gallery() {
                 >
                   <Icon className="h-4 w-4" />
                   {category.name}
-                </Button>
+                </HoverButton>
               );
             })}
           </div>
@@ -143,12 +143,12 @@ export default function Gallery() {
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                      <Button 
+                      <HoverButton 
                         variant="primary" 
                         className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       >
                         View Details
-                      </Button>
+                      </HoverButton>
                     </div>
                   </div>
                   <div className="p-6">
@@ -179,13 +179,13 @@ export default function Gallery() {
               alt="Gallery item"
               className="max-w-full max-h-full object-contain"
             />
-            <Button
+            <HoverButton
               variant="primary"
               className="absolute top-4 right-4"
               onClick={() => setSelectedImage(null)}
             >
               Close
-            </Button>
+            </HoverButton>
           </div>
         </div>
       )}
@@ -199,9 +199,9 @@ export default function Gallery() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let us bring your South African celebration to life with our local expertise and stunning décor
           </p>
-          <Button variant="secondary" size="lg" asChild>
+          <HoverButton variant="secondary" size="lg" asChild>
             <a href="/contact">Start Planning Today</a>
-          </Button>
+          </HoverButton>
         </div>
       </section>
     </div>

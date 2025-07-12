@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button"
 
 const NotFound = () => {
   const location = useLocation();
@@ -17,9 +17,9 @@ const NotFound = () => {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <Button asChild variant="primary">
+        <HoverButton variant="primary">
           <Link to="/">Return to Home</Link>
-        </Button>
+        </HoverButton>
       </div>
     </div>
   );

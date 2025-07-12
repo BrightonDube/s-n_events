@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -352,7 +352,7 @@ Submitted on: ${new Date().toLocaleString()}
                     {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                   </div>
 
-                  <Button 
+                  <HoverButton 
                     type="submit" 
                     variant="primary"
                     className="w-full disabled:opacity-50 disabled:cursor-not-allowed"
@@ -360,7 +360,7 @@ Submitted on: ${new Date().toLocaleString()}
                   >
                     <Send className="mr-2 h-4 w-4" />
                     {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
+                  </HoverButton>
                 </form>
               </CardContent>
             </Card>
@@ -422,12 +422,12 @@ Submitted on: ${new Date().toLocaleString()}
                       <p className="text-green-700 text-sm mb-3">
                         Get instant answers to your questions via WhatsApp
                       </p>
-                      <Button 
+                      <HoverButton 
                         className="bg-green-600 hover:bg-green-700 text-white"
                         onClick={() => window.open('https://wa.me/270719835562', '_blank')}
                       >
                         Chat on WhatsApp
-                      </Button>
+                      </HoverButton>
                     </div>
                   </div>
                 </CardContent>
@@ -467,14 +467,14 @@ Submitted on: ${new Date().toLocaleString()}
                 <p className="text-sm font-medium text-brand-accent">
                   340 Surrey Avenue, Ferndale, Randburg, 2194
                 </p>
-                <Button 
+                <HoverButton 
                   variant="secondary" 
                   className="mt-2 text-sm"
                   onClick={() => window.open('https://maps.google.com/?q=340+Surrey+Avenue,+Ferndale,+Randburg,+2194', '_blank')}
                   size="sm"
                 >
                   Open in Google Maps
-                </Button>
+                </HoverButton>
               </CardContent>
             </Card>
           </div>

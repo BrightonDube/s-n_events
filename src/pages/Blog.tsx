@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { Input } from "@/components/ui/input";
 import { Calendar, User, Search, Tag, Clock, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -367,14 +367,14 @@ export default function Blog() {
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
-                <Button
+                <HoverButton
                   key={category}
                   variant={selectedCategory === category ? "primary" : "secondary"}
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
-                </Button>
+                </HoverButton>
               ))}
             </div>
           </div>
@@ -439,13 +439,13 @@ export default function Blog() {
                       ))}
                     </div>
 
-                    <Button 
+                    <HoverButton 
                       variant="primary" 
                       className="w-full mt-4"
                       onClick={() => setSelectedPost(post)}
                     >
                       Read Full Article
-                    </Button>
+                    </HoverButton>
                   </div>
                 </CardContent>
               </Card>
@@ -474,9 +474,9 @@ export default function Blog() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let our expert team bring your vision to life with professional planning and stunning décor
           </p>
-          <Button variant="secondary" size="lg" asChild>
+          <HoverButton variant="secondary" size="lg" asChild>
             <a href="/contact">Get Started Today</a>
-          </Button>
+          </HoverButton>
         </div>
       </section>
 
@@ -486,14 +486,14 @@ export default function Blog() {
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center z-10">
               <h2 className="font-serif text-2xl font-bold text-brand-accent">{selectedPost.title}</h2>
-              <Button 
+              <HoverButton 
                 variant="secondary" 
                 size="icon" 
                 onClick={() => setSelectedPost(null)}
                 className="rounded-full"
               >
                 <X className="h-6 w-6" />
-              </Button>
+              </HoverButton>
             </div>
             
             <div className="p-6">
@@ -539,13 +539,13 @@ export default function Blog() {
             </div>
             
             <div className="sticky bottom-0 bg-white p-4 border-t">
-              <Button 
+              <HoverButton 
                 variant="primary" 
                 onClick={() => setSelectedPost(null)}
                 className="w-full"
               >
                 Close Article
-              </Button>
+              </HoverButton>
             </div>
           </div>
         </div>

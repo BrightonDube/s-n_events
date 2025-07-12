@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Calendar, Users, Award, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
@@ -202,9 +202,11 @@ export default function Home() {
             </div>
 
             <div className="pt-4 flex justify-center">
-              <Button asChild className="bg-gradient-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
-                <Link to="/contact">Request Quote</Link>
-              </Button>
+              <Link to="/contact">
+                <HoverButton className="bg-gradient-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
+                  Request Quote
+                </HoverButton>
+              </Link>
             </div>
           </div>
         </DialogContent>
@@ -238,14 +240,16 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                <Button asChild size="lg" className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
-                  <Link to="/contact">
+                <Link to="/contact">
+                  <HoverButton className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-accent font-bold border border-white/70 shadow-xl drop-shadow-lg">
-                  <Link to="/gallery">View Our Work</Link>
-                </Button>
+                  </HoverButton>
+                </Link>
+                <Link to="/gallery">
+                  <HoverButton className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-accent font-bold border border-white/70 shadow-xl drop-shadow-lg">
+                    View Our Work
+                  </HoverButton>
+                </Link>
               </div>
             </div>
           </div>
@@ -331,24 +335,23 @@ export default function Home() {
                   <p className="text-muted-foreground mb-4">
                     {service.description}
                   </p>
-                  <Button
-                    variant="secondary"
+                  <HoverButton
                     className="text-brand-primary hover:text-brand-accent"
                     onClick={() => setSelectedService(service)}
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </HoverButton>
                 </CardContent>
               </Card>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-gradient-primary text-white hover:shadow-elegant">
-              <Link to="/services">
+            <Link to="/services">
+              <HoverButton className="bg-gradient-primary text-white hover:shadow-elegant">
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+              </HoverButton>
+            </Link>
           </div>
         </div>
       </section>
@@ -398,18 +401,18 @@ export default function Home() {
             Let us help you create memories that will last a lifetime. Our personalized approach ensures every detail reflects your unique vision for your Select Gathering.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="cta-button font-semibold border border-white">
-              <Link to="/contact">
+            <Link to="/contact">
+              <HoverButton className="cta-button font-semibold border border-white">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
-              </Link>
-            </Button>
-            <Button asChild size="lg" className="cta-button font-semibold border border-white">
-              <Link to="/about">
+              </HoverButton>
+            </Link>
+            <Link to="/about">
+              <HoverButton className="cta-button font-semibold border border-white">
                 <Users className="mr-2 h-5 w-5" />
                 Learn About Us
-              </Link>
-            </Button>
+              </HoverButton>
+            </Link>
           </div>
         </div>
       </section>

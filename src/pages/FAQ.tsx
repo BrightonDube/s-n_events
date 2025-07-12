@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Search, HelpCircle, Calendar, CreditCard, Users, Settings } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -161,7 +161,7 @@ export default function FAQ() {
               {faqCategories.map((category) => {
                 const Icon = category.icon;
                 return (
-                  <Button
+                  <HoverButton
                     key={category.id}
                     variant={selectedCategory === category.id ? "primary" : "secondary"}
                     onClick={() => setSelectedCategory(category.id)}
@@ -169,7 +169,7 @@ export default function FAQ() {
                   >
                     <Icon className="h-4 w-4" />
                     {category.name}
-                  </Button>
+                  </HoverButton>
                 );
               })}
             </div>
@@ -216,9 +216,9 @@ export default function FAQ() {
                 <p className="text-muted-foreground mb-6">
                   Try adjusting your search terms or browse a different category
                 </p>
-                <Button variant="primary" onClick={() => { setSearchTerm(""); setSelectedCategory("all"); }}>
+                <HoverButton variant="primary" onClick={() => { setSearchTerm(""); setSelectedCategory("all"); }}>
                   Show All Questions
-                </Button>
+                </HoverButton>
               </div>
             )}
           </div>
@@ -236,12 +236,12 @@ export default function FAQ() {
               Can't find the answer you're looking for? Our team is here to help!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="lg" asChild>
+              <HoverButton variant="primary" size="lg" asChild>
                 <a href="/contact">Contact Us</a>
-              </Button>
-              <Button variant="secondary" size="lg" asChild>
+              </HoverButton>
+              <HoverButton variant="secondary" size="lg" asChild>
                 <a href="/book-consultation">Book Consultation</a>
-              </Button>
+              </HoverButton>
             </div>
           </div>
         </div>

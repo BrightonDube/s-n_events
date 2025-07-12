@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button"
 import { Input } from "@/components/ui/input";
 
 export function Footer() {
@@ -18,15 +18,15 @@ export function Footer() {
               décor services in Randburg and across South Africa.
             </p>
             <div className="flex space-x-4">
-              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
+              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
+              </HoverButton>
+              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Instagram className="h-5 w-5" />
-              </Button>
-              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
+              </HoverButton>
+              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Twitter className="h-5 w-5" />
-              </Button>
+              </HoverButton>
             </div>
           </div>
 

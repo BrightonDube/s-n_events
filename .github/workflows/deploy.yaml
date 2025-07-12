@@ -42,6 +42,7 @@ jobs:
       - name: SFTP Upload
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           server: ${{ secrets.SSH_HOST }}           #
           username: ${{ secrets.SSH_USERNAME }}     
           password: ${{ secrets.SSH_PASSWORD }}     # 

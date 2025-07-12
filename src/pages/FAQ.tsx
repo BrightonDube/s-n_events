@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Search, HelpCircle, Calendar, CreditCard, Users, Settings } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const faqCategories = [
   { id: "all", name: "All Questions", icon: HelpCircle },
@@ -122,7 +123,7 @@ export default function FAQ() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +141,7 @@ export default function FAQ() {
             Find answers to common questions about our intimate event planning services
           </p>
         </motion.div>
-      </AuroraBackground>
+      </HoverBackground>
 
       {/* Search Section */}
       <section className="py-12 bg-brand-cream">

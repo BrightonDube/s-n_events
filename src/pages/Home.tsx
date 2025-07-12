@@ -240,7 +240,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                <Link to="/contact">
+                  <Link to="/contact">
                   <HoverButton className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </HoverButton>
@@ -249,7 +249,7 @@ export default function Home() {
                   <HoverButton className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-accent font-bold border border-white/70 shadow-xl drop-shadow-lg">
                     View Our Work
                   </HoverButton>
-                </Link>
+                  </Link>
               </div>
             </div>
           </div>
@@ -347,11 +347,11 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services">
+              <Link to="/services">
               <HoverButton className="bg-gradient-primary text-white hover:shadow-elegant">
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
               </HoverButton>
-            </Link>
+              </Link>
           </div>
         </div>
       </section>
@@ -401,18 +401,18 @@ export default function Home() {
             Let us help you create memories that will last a lifetime. Our personalized approach ensures every detail reflects your unique vision for your Select Gathering.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+              <Link to="/contact">
               <HoverButton className="cta-button font-semibold border border-white">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
               </HoverButton>
-            </Link>
-            <Link to="/about">
+              </Link>
+              <Link to="/about">
               <HoverButton className="cta-button font-semibold border border-white">
                 <Users className="mr-2 h-5 w-5" />
                 Learn About Us
               </HoverButton>
-            </Link>
+              </Link>
           </div>
         </div>
       </section>

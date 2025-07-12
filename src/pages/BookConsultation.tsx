@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar, Clock, Users, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const eventTypes = [
   "Wedding",
@@ -84,7 +85,7 @@ export default function BookConsultation() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +103,7 @@ export default function BookConsultation() {
             Let's discuss your vision and create the perfect intimate celebration together
           </p>
         </motion.div>
-      </AuroraBackground>
+      </HoverBackground>
 
       {/* Consultation Info */}
       <section className="py-12 bg-brand-cream">

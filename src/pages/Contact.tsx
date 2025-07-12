@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const contactInfo = [
   {
@@ -187,7 +188,7 @@ Submitted on: ${new Date().toLocaleString()}
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -206,7 +207,7 @@ Submitted on: ${new Date().toLocaleString()}
             for a free consultation and personalized quote.
           </p>
         </motion.div>
-      </AuroraBackground>
+      </HoverBackground>
 
       {/* Contact Form & Info */}
       <section className="py-20 bg-background">

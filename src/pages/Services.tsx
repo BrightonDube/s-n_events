@@ -2,6 +2,7 @@ import { Check, Target, Users, PartyPopper, Wine, ChefHat, Palette } from "lucid
 import { HoverButton } from "@/components/ui/hover-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const services = [
   {
@@ -166,18 +167,18 @@ export default function Services() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-primary text-white">
+      <HoverBackground className="relative py-20 text-white" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
-            Our Services
-          </h1>
+              Our Services
+            </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
               Comprehensive event planning and décor services for intimate gatherings and boutique celebrations across South Africa
-          </p>
+            </p>
           </div>
         </div>
-      </section>
+      </HoverBackground>
 
       {/* Services Grid */}
       <section className="py-20 bg-background">

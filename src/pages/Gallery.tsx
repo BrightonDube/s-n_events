@@ -10,6 +10,7 @@ import heroParty from "@/assets/hero-party.jpg";
 import gardenWedding from "@/assets/garden-wedding.jpg";
 import vodacom from "@/assets/vodacom.jpg";
 import babyShower from "@/assets/baby-shower.jpg";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const categories = [
   { id: "all", name: "All Events", icon: Calendar },
@@ -82,7 +83,7 @@ export default function Gallery() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +101,7 @@ export default function Gallery() {
             Explore our portfolio of unforgettable South African events and celebrations
           </p>
         </motion.div>
-      </AuroraBackground>
+      </HoverBackground>
 
       {/* Category Filter */}
       <section className="py-12 bg-brand-secondary">

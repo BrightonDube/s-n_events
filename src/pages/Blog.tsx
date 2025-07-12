@@ -7,6 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import Markdown from "@/components/Markdown";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
+import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const categories = [
   "All Posts",
@@ -332,7 +333,7 @@ export default function Blog() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -350,7 +351,7 @@ export default function Blog() {
             Tips, trends, and insights for creating unforgettable intimate celebrations
           </p>
         </motion.div>
-      </AuroraBackground>
+      </HoverBackground>
 
       {/* Search and Filter */}
       <section className="py-8 bg-brand-cream">

@@ -1,28 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 /* Book Free Consultation buttons on Home.tsx: white bg + dark text on hover */
-.bg-brand-gold:hover, .bg-brand-gold:focus,
-.bg-brand-gold\/95:hover, .bg-brand-gold\/95:focus {
-  background: #fff !important;
-  color: var(--brand-accent, #2d1b1a) !important;
+.bg-brand-primary:hover, .bg-brand-primary:focus,
+.bg-brand-primary\/95:hover, .bg-brand-primary\/95:focus {
+  background: hsl(var(--brand-primary-light)) !important;
+  color: hsl(var(--brand-accent)) !important;
   transition: background 0.3s, color 0.3s;
 }
 
 /* Animate ArrowRight icon in Book Free Consultation button on hover: rotate upwards */
-.bg-brand-gold\/95 .ml-2 {
+.bg-brand-primary\/95 .ml-2 {
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
 }
-.bg-brand-gold\/95:hover .ml-2,
-.bg-brand-gold\/95:focus .ml-2 {
+.bg-brand-primary\/95:hover .ml-2,
+.bg-brand-primary\/95:focus .ml-2 {
   transform: rotate(-90deg);
 }
 
 /* Book Consultation button hover effect */
-.bg-gradient-gold:hover, .bg-gradient-gold:focus {
-  background: #E9638F !important;
-  color: var(--brand-accent, #2d1b1a) !important;
+.bg-gradient-primary:hover, .bg-gradient-primary:focus {
+  background: hsl(var(--brand-primary-light)) !important;
+  color: hsl(var(--brand-accent)) !important;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -46,140 +45,106 @@ All colors MUST be HSL.
 */
 
 /* Bottom section buttons with dark brown hover effect */
-.bg-brand-gold.border-brand-navy:hover,
-.bg-brand-gold.border-brand-navy:focus {
-  background: #2d1b1a !important;
+.bg-brand-primary.border-brand-accent:hover,
+.bg-brand-primary.border-brand-accent:focus {
+  background: hsl(var(--brand-accent)) !important;
   color: #fff !important;
-  border-color: #2d1b1a !important;
+  border-color: hsl(var(--brand-accent)) !important;
   transition: all 0.3s;
 }
 
 /* Learn About Us button hover effect */
 [variant="outline-white"]:hover,
 [variant="outline-white"]:focus {
-  background: #2d1b1a !important;
+  background: hsl(var(--brand-accent)) !important;
   color: #fff !important;
-  border-color: #2d1b1a !important;
+  border-color: hsl(var(--brand-accent)) !important;
   transition: all 0.3s;
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 215 16% 17%;
+@theme {
+  --color-background: 0 0% 100%;
+  --color-foreground: 215 16% 17%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 16% 17%;
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 215 16% 17%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 16% 17%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 215 16% 17%;
 
-    --primary: 215 32% 15%;
-    --primary-foreground: 0 0% 98%;
+  --color-primary: 215 32% 15%;
+  --color-primary-foreground: 0 0% 98%;
 
-    --secondary: 215 25% 95%;
-    --secondary-foreground: 215 16% 17%;
+  --color-secondary: 215 25% 95%;
+  --color-secondary-foreground: 215 16% 17%;
 
-    --muted: 215 25% 95%;
-    --muted-foreground: 215 16% 46%;
+  --color-muted: 215 25% 95%;
+  --color-muted-foreground: 215 16% 46%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 215 32% 15%;
+  --color-accent: 43 96% 56%;
+  --color-accent-foreground: 215 32% 15%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+  --color-destructive: 0 84% 60%;
+  --color-destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 90%;
-    --input: 215 25% 90%;
-    --ring: 215 32% 15%;
+  --color-border: 215 25% 90%;
+  --color-input: 215 25% 90%;
+  --color-ring: 215 32% 15%;
 
-    /* S&N Events Brand Colors - Pink/Rose Theme */
-    --brand-primary: 340 75% 65%;
-    --brand-primary-light: 340 75% 75%;
-    --brand-secondary: 340 50% 85%;
-    --brand-accent: 340 30% 25%;
-    --brand-cream: 340 20% 96%;
-    --brand-white: 0 0% 100%;
+  /* S&N Events Brand Colors - Original Pink/Rose Theme */
+  --color-brand-primary: 340 82% 67%;
+  --color-brand-primary-light: 340 82% 75%;
+  --color-brand-secondary: 340 60% 85%;
+  --color-brand-accent: 340 35% 22%; /* Equivalent to #3F232C - Used for logo text and dark accents */
+  --color-brand-cream: 340 20% 96%;
+  --color-brand-white: 0 0% 100%;
+  --color-brand-cta: #ED85A7; /* Call-to-action section background */
+  
+  /* Gradient definitions */
+  --gradient-primary: linear-gradient(135deg, hsl(340 82% 67%) 0%, hsl(340 75% 60%) 100%);
+  --gradient-footer: #3F232C;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-light)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--brand-primary-light)), hsl(var(--brand-secondary)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-accent)) 0%, hsl(var(--brand-primary)) 100%);
-    --gradient-footer: linear-gradient(135deg, hsl(340 30% 20%), hsl(340 25% 15%));
+  --radius: 0.5rem;
 
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--brand-primary) / 0.3);
-    --shadow-primary: 0 5px 20px -5px hsl(var(--brand-primary) / 0.4);
-    --shadow-subtle: 0 2px 8px -2px hsl(var(--brand-accent) / 0.1);
-
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  --color-sidebar-background: 0 0% 98%;
+  --color-sidebar-foreground: 240 5.3% 26.1%;
+  --color-sidebar-primary: 240 5.9% 10%;
+  --color-sidebar-primary-foreground: 0 0% 98%;
+  --color-sidebar-accent: 240 4.8% 95.9%;
+  --color-sidebar-accent-foreground: 240 5.9% 10%;
+  --color-sidebar-border: 220 13% 91%;
+  --color-sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* Gradient utility classes */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+.bg-gradient-footer {
+  background: var(--gradient-footer);
+}
+
+/* Call-to-action section - fixed pink background */
+.bg-brand-cta {
+  background: var(--color-brand-cta);
+}
+
+/* Call-to-action buttons hover effect */
+.cta-button {
+  background: var(--color-brand-cta) !important;
+  color: white !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.cta-button:hover {
+  background: var(--color-brand-accent) !important;
+  color: white !important;
+}
+
+/* S&N Events Brand Font */
+.brand-font {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
 }

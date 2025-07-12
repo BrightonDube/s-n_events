@@ -131,7 +131,6 @@ const services = [
 ];
 
 const stats = [
-  { number: "20", label: "Max Guest Capacity" },
   { number: "Fresh", label: "Innovative Approach" },
   { number: "100%", label: "Personalized Service" },
   { number: "VIP", label: "Every Guest Experience" },
@@ -163,11 +162,11 @@ export default function Home() {
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
             <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl font-serif text-brand-navy flex items-center">
+              <DialogTitle className="text-2xl font-serif text-brand-accent flex items-center">
                 <span className="text-3xl mr-2">{selectedService?.icon}</span>
                 {selectedService?.title}
               </DialogTitle>
-              <DialogClose className="h-6 w-6 text-muted-foreground hover:text-brand-navy">
+              <DialogClose className="h-6 w-6 text-muted-foreground hover:text-brand-accent">
                 <X className="h-6 w-6" />
               </DialogClose>
             </div>
@@ -184,11 +183,11 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="text-lg font-medium text-brand-navy mb-2">What We Offer:</h4>
+              <h4 className="text-lg font-medium text-brand-accent mb-2">What We Offer:</h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                 {selectedService?.details.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <span className="text-brand-gold mr-2">•</span>
+                    <span className="text-brand-primary mr-2">•</span>
                     <span className="text-muted-foreground text-sm">{feature}</span>
                   </li>
                 ))}
@@ -196,14 +195,14 @@ export default function Home() {
             </div>
 
             <div className="bg-brand-cream/30 p-4 rounded-md">
-              <p className="text-sm text-brand-navy">
+              <p className="text-sm text-brand-accent">
                 <span className="font-medium">Planning Timeline: </span>
                 {selectedService?.details.timeline}
               </p>
             </div>
 
             <div className="pt-4 flex justify-center">
-              <Button asChild className="bg-gradient-gold hover:shadow-gold text-brand-navy">
+              <Button asChild className="bg-gradient-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                 <Link to="/contact">Request Quote</Link>
               </Button>
             </div>
@@ -224,27 +223,27 @@ export default function Home() {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             />
-            <div className="absolute inset-0 bg-brand-navy/60" />
+            <div className="absolute inset-0 bg-brand-accent/60" />
           </div>
         ))}
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-block w-full md:w-auto bg-white/40 dark:bg-white/20 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 px-8 py-8 mb-6 animate-fade-in-up">
-                <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-brand-navy drop-shadow-md">
+                <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-brand-accent drop-shadow-md">
                   {heroSlides[currentSlide].title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-0 text-brand-navy/90 animate-fade-in-up">
+                <p className="text-xl md:text-2xl mb-0 text-brand-accent/90 animate-fade-in-up">
                   {heroSlides[currentSlide].subtitle}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                <Button asChild size="lg" className="bg-brand-gold/95 backdrop-blur-lg hover:bg-brand-gold hover:shadow-gold text-brand-navy font-bold border border-brand-navy/30 shadow-xl drop-shadow-lg">
+                <Button asChild size="lg" className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                   <Link to="/contact">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-navy font-bold border border-white/70 shadow-xl drop-shadow-lg">
+                <Button asChild size="lg" className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-accent font-bold border border-white/70 shadow-xl drop-shadow-lg">
                   <Link to="/gallery">View Our Work</Link>
                 </Button>
               </div>
@@ -255,13 +254,13 @@ export default function Home() {
         {/* Slide Navigation */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-brand-gold transition-colors"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-brand-primary transition-colors"
         >
           <ChevronLeft className="h-8 w-8" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-brand-gold transition-colors"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-brand-primary transition-colors"
         >
           <ChevronRight className="h-8 w-8" />
         </button>
@@ -273,7 +272,7 @@ export default function Home() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? "bg-brand-gold" : "bg-white/50"
+                index === currentSlide ? "bg-brand-primary" : "bg-white/50"
               }`}
             />
           ))}
@@ -284,18 +283,18 @@ export default function Home() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-accent mb-6">
               Premier Events Company in Randburg
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Founded in June 2025, S&N Events brings fresh perspectives and innovative ideas to
+              Founded in June 2025, <span className="brand-font text-brand-accent">S&N Events</span> brings fresh perspectives and innovative ideas to
               event planning across South Africa. We specialize in turning your vision into
               reality with meticulous planning, creative design, and flawless execution.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-brand-gold mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-brand-primary mb-2">
                     {stat.number}
                   </div>
                   <div className="text-muted-foreground">{stat.label}</div>
@@ -310,11 +309,11 @@ export default function Home() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Our Signature Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From intimate gatherings to grand celebrations, we create memorable
+              From intimate gatherings to micro-celebrations, we create memorable
               experiences tailored to your unique style and requirements.
             </p>
           </div>
@@ -326,7 +325,7 @@ export default function Home() {
                   <div className="text-4xl mb-4 group-hover:animate-float">
                     {service.icon}
                   </div>
-                  <h3 className="font-semibold text-xl text-brand-navy mb-3">
+                  <h3 className="font-semibold text-xl text-brand-accent mb-3">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -334,7 +333,7 @@ export default function Home() {
                   </p>
                   <Button
                     variant="secondary"
-                    className="text-brand-gold hover:text-brand-navy"
+                    className="text-brand-primary hover:text-brand-accent"
                     onClick={() => setSelectedService(service)}
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -358,8 +357,8 @@ export default function Home() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
-              Why Choose S&N Events?
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
+              Why Choose <span className="brand-font">S&N Events</span>?
             </h2>
             <p className="text-lg text-muted-foreground">
               Where celebrations are prioritized - Specializing in intimate, exclusive experiences
@@ -368,9 +367,9 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center border-t-4 border-t-brand-gold">
+              <Card key={index} className="text-center border-t-4 border-t-brand-primary">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-brand-navy mb-2">
+                  <div className="text-3xl font-bold text-brand-accent mb-2">
                     {stat.number}
                   </div>
                   <p className="text-muted-foreground font-medium">
@@ -383,29 +382,29 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              At S&N Events, we believe that small gatherings have huge impact. With a focus on personalized service and attention to detail, every guest is VIP. From private celebrations to executive meetings, we create unforgettable experiences that exceed expectations.
+              At <span className="brand-font text-brand-accent">S&N Events</span>, we believe that small gatherings have huge impact. With a focus on personalized service and attention to detail, every guest is VIP. From private celebrations to executive meetings, we create unforgettable experiences that exceed expectations.
             </p>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-primary text-white">
+      <section className="py-20 bg-brand-cta text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
             Ready to Create Your Perfect Intimate Celebration?
           </h2>
-          <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
             Let us help you create memories that will last a lifetime. Our personalized approach ensures every detail reflects your unique vision for your Select Gathering.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold border border-brand-navy">
+            <Button asChild size="lg" className="cta-button font-semibold border border-white">
               <Link to="/contact">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
               </Link>
             </Button>
-            <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold border border-brand-navy">
+            <Button asChild size="lg" className="cta-button font-semibold border border-white">
               <Link to="/about">
                 <Users className="mr-2 h-5 w-5" />
                 Learn About Us

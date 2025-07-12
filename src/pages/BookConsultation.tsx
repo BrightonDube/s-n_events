@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar, Clock, Users, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
 
 const eventTypes = [
   "Wedding",
@@ -82,16 +84,25 @@ export default function BookConsultation() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Book Your Consultation
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
+            Book Your Free Consultation
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
-            Let's discuss your vision and create something extraordinary together
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+            Let's discuss your vision and create the perfect intimate celebration together
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Consultation Info */}
       <section className="py-12 bg-brand-cream">

@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 
 export function Footer() {
   return (
-    <footer className="text-white" style={{background: 'var(--gradient-footer)'}}>
+    <footer className="bg-gradient-footer text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold text-brand-gold">
+            <h3 className="brand-font text-2xl text-brand-primary">
               S&N Events
             </h3>
             <p className="text-gray-300 leading-relaxed">
@@ -18,13 +18,13 @@ export function Footer() {
               décor services in Randburg and across South Africa.
             </p>
             <div className="flex space-x-4">
-              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Instagram className="h-5 w-5" />
               </Button>
-              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Twitter className="h-5 w-5" />
               </Button>
             </div>
@@ -32,20 +32,19 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-brand-gold">Quick Links</h4>
+            <h4 className="font-semibold text-lg text-brand-primary">Quick Links</h4>
             <ul className="space-y-2">
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Our Services", href: "/services" },
                 { name: "Portfolio", href: "/gallery" },
-                { name: "Testimonials", href: "/testimonials" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-brand-gold transition-colors"
+                    className="text-gray-300 hover:text-brand-primary transition-colors duration-300 hover:underline"
                   >
                     {link.name}
                   </Link>
@@ -56,7 +55,7 @@ export function Footer() {
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-brand-gold">Our Services</h4>
+            <h4 className="font-semibold text-lg text-brand-primary">Our Services</h4>
             <ul className="space-y-2">
               {[
                 "Wedding Planning",
@@ -75,40 +74,25 @@ export function Footer() {
 
           {/* Contact & Newsletter */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-brand-gold">Get In Touch</h4>
+            <h4 className="font-semibold text-lg text-brand-primary">Get In Touch</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-brand-gold" />
+                <Phone className="h-4 w-4 text-brand-primary" />
                 <span className="text-gray-300">0719835562 (Shanna)</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-brand-gold" />
+                <Phone className="h-4 w-4 text-brand-primary" />
                 <span className="text-gray-300">0649841362 (Nono)</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-brand-gold" />
+                <Mail className="h-4 w-4 text-brand-primary" />
                 <span className="text-gray-300">info@snnevents.co.za</span>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 text-brand-gold mt-1" />
+                <MapPin className="h-4 w-4 text-brand-primary mt-1" />
                 <span className="text-gray-300">
                   340 Surrey Avenue, Ferndale, Randburg, 2194
                 </span>
-              </div>
-            </div>
-
-            {/* Newsletter */}
-            <div className="pt-4">
-              <h5 className="font-medium text-brand-gold mb-2">Newsletter</h5>
-              <div className="flex space-x-2">
-                <Input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                />
-                <Button variant="primary">
-                  Subscribe
-                </Button>
               </div>
             </div>
           </div>

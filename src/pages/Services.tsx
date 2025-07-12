@@ -166,15 +166,16 @@ export default function Services() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
+      <section className="relative py-20 bg-gradient-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Our Services
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
-            From intimate gatherings to grand celebrations, we offer comprehensive 
-            event planning services tailored to make your special day unforgettable.
-          </p>
+          <div className="max-w-4xl mx-auto">
+            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6">
+              Our Services
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+              Comprehensive event planning and décor services for intimate gatherings and boutique celebrations across South Africa
+            </p>
+          </div>
         </div>
       </section>
 
@@ -186,22 +187,22 @@ export default function Services() {
               <Card 
                 key={index} 
                 className={`relative hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 ${
-                  service.popular ? 'border-brand-gold border-2' : ''
+                  service.popular ? 'border-brand-primary border-2' : ''
                 }`}
               >
                 {service.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-brand-gold text-brand-navy px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-brand-primary text-brand-accent px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
                 <CardHeader className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold/10 rounded-full mb-4 mx-auto">
-                    <service.icon className="h-8 w-8 text-brand-gold" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary/10 rounded-full mb-4 mx-auto">
+                    <service.icon className="h-8 w-8 text-brand-primary" />
                   </div>
-                  <CardTitle className="text-xl text-brand-navy">
+                  <CardTitle className="text-xl text-brand-accent">
                     {service.title}
                   </CardTitle>
                   <p className="text-muted-foreground">
@@ -213,7 +214,7 @@ export default function Services() {
                   <div className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-2">
-                        <Check className="h-4 w-4 text-brand-gold flex-shrink-0" />
+                        <Check className="h-4 w-4 text-brand-primary flex-shrink-0" />
                         <span className="text-sm text-muted-foreground">{feature}</span>
                       </div>
                     ))}
@@ -235,7 +236,7 @@ export default function Services() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Our Planning Process
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -267,10 +268,10 @@ export default function Services() {
               }
             ].map((process, index) => (
               <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold text-brand-navy rounded-full text-2xl font-bold mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary text-brand-accent rounded-full text-2xl font-bold mb-4">
                   {process.step}
                 </div>
-                <h3 className="font-semibold text-xl text-brand-navy mb-2">
+                <h3 className="font-semibold text-xl text-brand-accent mb-2">
                   {process.title}
                 </h3>
                 <p className="text-muted-foreground">
@@ -286,7 +287,7 @@ export default function Services() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -299,7 +300,7 @@ export default function Services() {
           <div className="max-w-4xl mx-auto">
             {faqs.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-8">
-                <h3 className="font-semibold text-xl text-brand-gold mb-4">
+                <h3 className="font-semibold text-xl text-brand-primary mb-4">
                   {category.category}
                 </h3>
                 <Accordion type="single" collapsible className="space-y-2">
@@ -309,7 +310,7 @@ export default function Services() {
                       value={`${categoryIndex}-${faqIndex}`}
                       className="border border-border rounded-lg px-4"
                     >
-                      <AccordionTrigger className="text-left font-medium text-brand-navy hover:text-brand-gold">
+                      <AccordionTrigger className="text-left font-medium text-brand-accent hover:text-brand-primary">
                         {faq.question}
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
@@ -335,7 +336,7 @@ export default function Services() {
             personalized experience that exceeds your expectations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold" asChild>
+            <Button size="lg" className="bg-brand-primary text-brand-accent hover:bg-brand-primary-light font-semibold" asChild>
               <a href="/contact">Get Free Quote</a>
             </Button>
             <Button variant="secondary" size="lg" asChild>

@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Calendar, User, Search, Tag, Clock, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import Markdown from "@/components/Markdown";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
 
 const categories = [
   "All Posts",
@@ -330,16 +332,25 @@ export default function Blog() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
             Event Planning Blog
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
-            Expert insights, tips, and trends from South Africa's premier event planners
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+            Tips, trends, and insights for creating unforgettable intimate celebrations
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Search and Filter */}
       <section className="py-8 bg-brand-cream">
@@ -451,43 +462,6 @@ export default function Blog() {
               </p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="py-16 bg-brand-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-accent mb-6">
-              Stay Updated
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Subscribe to our newsletter for the latest event planning tips, trends, and exclusive insights.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button 
-                variant="primary"
-                onClick={() => {
-                  if (email) {
-                    toast({
-                      title: "Thank you for subscribing!",
-                      description: "You'll receive our latest updates in your inbox.",
-                    });
-                    setEmail("");
-                  }
-                }}
-              >
-                Subscribe
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -13,13 +13,13 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["0719835562", "0649841362"],
+    details: ["0649841362", "0719835562"],
     description: "Call us during business hours"
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@snnevents.co.za", "quotes@snnevents.co.za"],
+    details: ["info@snnevents.co.za"],
     description: "We'll respond within 24 hours"
   },
   {
@@ -152,10 +152,10 @@ Submitted on: ${new Date().toLocaleString()}
       `;
 
       // Use mailto for now - in production, this would be replaced with a proper email service
-      const mailtoLink = `mailto:info@snnevents.co.za?subject=New Contact Form Submission - ${formData.eventType}&body=${encodeURIComponent(emailBody)}`;
+      // const mailtoLink = `mailto:info@snnevents.co.za?subject=New Contact Form Submission - ${formData.eventType}&body=${encodeURIComponent(emailBody)}`;
       
       // Open mailto link
-      window.open(mailtoLink, '_blank');
+      // window.open(mailtoLink, '_blank');
 
       toast({
         title: "Message Sent!",

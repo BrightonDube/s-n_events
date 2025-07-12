@@ -24,7 +24,7 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="font-serif text-2xl font-bold text-brand-accent">
+          <Link to="/" className="brand-font text-2xl text-brand-accent">
             S&N Events
           </Link>
 

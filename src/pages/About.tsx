@@ -1,5 +1,7 @@
 import { Award, Users, Target, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
 
 const teamMembers = [
   {
@@ -45,18 +47,25 @@ export default function About() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            About S&N Events
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-brand-accent text-center">
+            About <span className="brand-font">S&N Events</span>
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up leading-relaxed">
-            Where celebrations are prioritized. Established in June 2025, S&N Events specializes in 
-            Private Receptions and Curated Events for intimate celebrations, believing that boutique 
-            gatherings have huge impact with VIP treatment for every guest.
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+            Founded in June 2025, we specialize in creating intimate, boutique celebrations that prioritize every guest's experience
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Company Story */}
       <section className="py-20 bg-background">
@@ -68,7 +77,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Nono and Shanna founded S&N Events in June 2025 with a focused vision: 
+                  Nono and Shanna founded <span className="brand-font text-brand-accent">S&N Events</span> in June 2025 with a focused vision: 
                   to create intimate, exclusive experiences for Private Receptions and Select Gatherings. 
                   We believe that small gatherings have huge impact, and our specialized approach 
                   ensures every guest receives VIP treatment.

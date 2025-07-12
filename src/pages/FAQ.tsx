@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Search, HelpCircle, Calendar, CreditCard, Users, Settings } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
 
 const faqCategories = [
   { id: "all", name: "All Questions", icon: HelpCircle },
@@ -18,7 +20,7 @@ const faqs = [
     id: 1,
     category: "services",
     question: "What types of events do you specialize in?",
-    answer: "We specialize in a wide range of events including weddings, corporate events, private parties, baby showers, product launches, anniversaries, and special celebrations. Our team has expertise in both intimate gatherings and large-scale events."
+    answer: "We specialize in intimate gatherings, boutique events, micro-celebrations, curated events, private receptions, and select gatherings. Our team has expertise in planning and coordinating every aspect of your special day."
   },
   {
     id: 2,
@@ -120,16 +122,25 @@ export default function FAQ() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
-            Find answers to common questions about our event planning services
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+            Find answers to common questions about our intimate event planning services
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Search Section */}
       <section className="py-12 bg-brand-cream">

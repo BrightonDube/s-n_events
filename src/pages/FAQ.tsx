@@ -152,7 +152,7 @@ export default function FAQ() {
                 return (
                   <Button
                     key={category.id}
-                    variant={selectedCategory === category.id ? "primary" : "outline"}
+                    variant={selectedCategory === category.id ? "primary" : "secondary"}
                     onClick={() => setSelectedCategory(category.id)}
                     className="flex items-center gap-2"
                   >
@@ -228,7 +228,7 @@ export default function FAQ() {
               <Button variant="primary" size="lg" asChild>
                 <a href="/contact">Contact Us</a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="secondary" size="lg" asChild>
                 <a href="/book-consultation">Book Consultation</a>
               </Button>
             </div>

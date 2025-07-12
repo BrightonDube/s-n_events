@@ -17,124 +17,124 @@ import heroParty from "@/assets/hero-party.jpg";
 
 const heroSlides = [
   {
-    image: heroWedding,
-    title: "Unforgettable Wedding Experiences",
-    subtitle: "Creating magical moments that last a lifetime",
+    image: heroParty,
+    title: "Intimate Celebrations That Matter",
+    subtitle: "Where celebrations are prioritized - Bespoke intimate experiences",
   },
   {
     image: heroCorporate,
-    title: "Professional Corporate Events",
-    subtitle: "Elevating your business gatherings with sophistication",
+    title: "Exclusive Small Company Gatherings",
+    subtitle: "CEO meetings, team building, and intimate corporate events",
   },
   {
-    image: heroParty,
-    title: "Memorable Celebrations",
-    subtitle: "Bringing your special occasions to life",
+    image: heroWedding,
+    title: "Personalized Private Events",
+    subtitle: "Creating unforgettable moments for your special occasions",
   },
 ];
 
 const services = [
   {
-    icon: "💒",
-    title: "Wedding Planning",
-    description: "Comprehensive planning for your perfect day, from venues to vendors.",
+    icon: "🎯",
+    title: "Event Planning & Coordination",
+    description: "Comprehensive planning for Private Receptions and exclusive intimate experiences.",
     details: {
-      fullDescription: "Our wedding planning service takes care of every detail of your special day. We handle venue selection, vendor coordination, decor design, timeline management, and on-the-day coordination. With S&N Events, you can enjoy your wedding day stress-free, knowing that every aspect is being handled with professionalism and care.",
+      fullDescription: "S&N Events specializes in Private Receptions and Curated Events for intimate gatherings. We believe that boutique celebrations have huge impact. With a focus on personalized service and attention to detail, every guest is VIP.",
       features: [
         "Personalized consultation to understand your vision",
-        "Venue selection and management",
-        "Vendor coordination and negotiations",
-        "Custom decor design and setup",
+        "Venue selection and coordination",
+        "Event budget management",
         "Timeline creation and management",
-        "Budget planning and tracking",
         "Day-of coordination services",
-        "Post-event cleanup coordination",
+        "Event staffing coordination",
+        "Vendor coordination and negotiations",
+        "Bar setup and breakdown",
       ],
-      timeline: "Planning typically begins 8-12 months before your wedding date",
+      timeline: "Booking typically begins 2-4 weeks before your event date",
     },
   },
   {
-    icon: "💼",
-    title: "Corporate Events",
-    description: "Professional event management for company gatherings and conferences.",
+    icon: "🍽️",
+    title: "Personalized Catering",
+    description: "All types of personalized catering tailored to your intimate gathering's unique needs.",
     details: {
-      fullDescription: "Our corporate event planning services are designed to create professional, engaging, and memorable business events. From product launches to annual conferences, we handle all logistics and details so you can focus on your business objectives and connecting with your attendees.",
+      fullDescription: "Our catering service focuses on creating memorable dining experiences for small groups. From elegant sit-down dinners to casual buffet spreads, we work with trusted partners to deliver exceptional cuisine that matches your event's atmosphere and your guests' preferences.",
       features: [
-        "Venue sourcing and management",
-        "Audio-visual equipment setup",
-        "Speaker and talent coordination",
-        "Catering selection and management",
-        "Registration and attendance tracking",
-        "Marketing material coordination",
-        "Transportation logistics",
-        "Post-event reporting and analysis",
+        "Custom menu development",
+        "Dietary restriction accommodation",
+        "Intimate dining experience design",
+        "Premium ingredient sourcing",
+        "Professional service staff",
+        "Table service coordination",
+        "Special occasion cake coordination",
+        "Beverage pairing recommendations",
       ],
-      timeline: "Planning typically begins 3-6 months before your event date",
+      timeline: "Menu planning begins 2-3 weeks before your event date",
     },
   },
   {
-    icon: "🎉",
-    title: "Party Planning",
-    description: "Intimate celebrations tailored to your vision",
+    icon: "🤝",
+    title: "Small Company Gatherings",
+    description: "CEO meetings, executive retreats, and intimate team building for small companies.",
     details: {
-      fullDescription: "Make your special occasion truly memorable with our party planning services. Whether it's a milestone birthday, anniversary celebration, baby shower, or just a gathering of friends, we'll handle everything from theme development to execution so you can enjoy being a guest at your own event.",
+      fullDescription: "Perfect for small companies looking to create meaningful connections. We specialize in CEO meetings, executive get-togethers, and team building experiences that foster collaboration and strengthen relationships in an intimate setting.",
       features: [
-        "Theme conceptualization and design",
-        "Venue decoration and setup",
-        "Entertainment and activity planning",
-        "Catering and beverage coordination",
-        "Invitation design and RSVP management",
-        "Photography and videography arrangements",
-        "Party favors and gifts coordination",
-        "On-site event management",
+        "Intimate venue sourcing and management",
+        "Personalized catering arrangements",
+        "Team building activity coordination",
+        "Meeting facilitation support",
+        "Networking session planning",
+        "Professional atmosphere creation",
+        "Executive retreat planning",
+        "Small group dynamics optimization",
       ],
-      timeline: "Planning typically begins 1-3 months before your event date",
+      timeline: "Planning typically begins 3-6 weeks before your event date",
     },
   },
   {
-    icon: "✨",
-    title: "Event Décor",
-    description: "Beautiful, customized decorations that bring your vision to life.",
+    icon: "🍸",
+    title: "Mobile Bar Services",
+    description: "Professional cocktail services bringing the bar experience to your intimate gathering.",
     details: {
-      fullDescription: "Transform any space into a breathtaking environment with our custom event décor services. Our expert designers will create a personalized look that reflects your vision and exceeds your expectations, from elegant floral arrangements to dramatic lighting and immersive themed environments.",
+      fullDescription: "Elevate your intimate gathering with our mobile bar services. From craft cocktails to wine pairings, we bring professional bartending and premium beverages to create a sophisticated atmosphere for your guests.",
       features: [
-        "Custom design conceptualization",
-        "Floral arrangements and installations",
-        "Lighting design and setup",
-        "Furniture and linen selection",
-        "Table settings and centerpieces",
-        "Backdrop and stage design",
-        "Entrance and focal point décor",
-        "Themed props and accessories",
+        "Professional bartender service",
+        "Premium beverage selection",
+        "Custom cocktail menu creation",
+        "Mobile bar setup and styling",
+        "Glassware and bar equipment",
+        "Cocktail consultation and tasting",
+        "Non-alcoholic specialty drinks",
       ],
-      timeline: "Planning typically begins 2-4 months before your event date",
+      timeline: "Menu planning begins 2-3 weeks before your event date",
     },
   },
-];
-
-const testimonials = [
   {
-    name: "Sarah Dlamini",
-    text: "S&N Events made our wedding absolutely perfect. Every detail was flawlessly executed!",
-    rating: 5,
-  },
-  {
-    name: "Duduzani Mthembu",
-    text: "Outstanding corporate event management. Professional, creative, and stress-free experience.",
-    rating: 4,
-  },
-  {
-    name: "Oratile Molefe",
-    text: "They turned our vision into reality. Couldn't have asked for a better team!",
-    rating: 4,
+    icon: "🎨",
+    title: "Event Décor & Setup",
+    description: "Beautiful décor for all types of events - picnic setups, backdrop design, and balloon décor.",
+    details: {
+      fullDescription: "Transform any space into something magical with our comprehensive décor services. We specialize in picnic setups, elegant backdrop designs, and creative balloon arrangements that create the perfect atmosphere for your intimate celebration.",
+      features: [
+        "Picnic setup with styling",
+        "Custom backdrop design and setup",
+        "Balloon décor arrangements",
+        "Table styling and centerpieces",
+        "Lighting and ambiance creation",
+        "Theme-based decoration",
+        "Setup and breakdown services",
+        "Photography-ready styling",
+      ],
+      timeline: "Design planning begins 1-3 weeks before your event date",
+    },
   },
 ];
 
 const stats = [
-  { number: "15+", label: "Events Planned" },
+  { number: "20", label: "Max Guest Capacity" },
   { number: "Fresh", label: "Innovative Approach" },
-  { number: "100%", label: "Client Satisfaction" },
-  { number: "7+", label: "Vendor Partners" },
+  { number: "100%", label: "Personalized Service" },
+  { number: "VIP", label: "Every Guest Experience" },
 ];
 
 export default function Home() {
@@ -333,7 +333,7 @@ export default function Home() {
                     {service.description}
                   </p>
                   <Button
-                    variant="ghost"
+                    variant="secondary"
                     className="text-brand-gold hover:text-brand-navy"
                     onClick={() => setSelectedService(service)}
                   >
@@ -354,32 +354,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Why Choose Us */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
-              What Our Clients Say
+              Why Choose S&N Events?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Don't just take our word for it - hear from our satisfied clients
+              Where celebrations are prioritized - Specializing in intimate, exclusive experiences
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-l-4 border-l-brand-gold">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <Card key={index} className="text-center border-t-4 border-t-brand-gold">
                 <CardContent className="p-6">
-                  <div className="flex mb-4">
-  {[...Array(testimonial.rating)].map((_, i) => (
-    <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400 drop-shadow" />
-  ))}
-</div>
-                  <p className="text-muted-foreground mb-4 italic">
-                    "{testimonial.text}"
-                  </p>
-                  <p className="font-semibold text-brand-navy">
-                    {testimonial.name}
+                  <div className="text-3xl font-bold text-brand-navy mb-2">
+                    {stat.number}
+                  </div>
+                  <p className="text-muted-foreground font-medium">
+                    {stat.label}
                   </p>
                 </CardContent>
               </Card>
@@ -387,9 +382,9 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/testimonials">Read More Testimonials</Link>
-            </Button>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              At S&N Events, we believe that small gatherings have huge impact. With a focus on personalized service and attention to detail, every guest is VIP. From private celebrations to executive meetings, we create unforgettable experiences that exceed expectations.
+            </p>
           </div>
         </div>
       </section>
@@ -398,11 +393,10 @@ export default function Home() {
       <section className="py-20 bg-gradient-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-            Ready to Create Something Amazing?
+            Ready to Create Your Perfect Intimate Celebration?
           </h2>
           <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Let's discuss your vision and create an unforgettable event that 
-            exceeds your expectations. Book your free consultation today.
+            Let us help you create memories that will last a lifetime. Our personalized approach ensures every detail reflects your unique vision for your Select Gathering.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold border border-brand-navy">

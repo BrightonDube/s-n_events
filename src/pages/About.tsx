@@ -6,7 +6,7 @@ const teamMembers = [
     name: "Nono",
     role: "Co-Director",
     image: "/placeholder.svg",
-    bio: "With extensive experience in event planning and client relations, Nono brings passion and dedication to creating unforgettable celebrations.",
+    bio: "Nono specializes in intimate event coordination and client relations, bringing passion and dedication to creating exclusive experiences for Private Receptions and boutique celebrations.",
     social: {
       linkedin: "#",
       instagram: "#"
@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Shanna",
     role: "Co-Director",
     image: "/placeholder.svg",
-    bio: "Shanna's creative vision and attention to detail ensure every event reflects our clients' unique style and exceeds their expectations.",
+    bio: "Shanna's creative vision and attention to detail specialize in personalized catering, mobile bar services, and beautiful décor setups that make every intimate gathering special.",
     social: {
       linkedin: "#",
       instagram: "#"
@@ -57,9 +57,9 @@ export default function About() {
             About S&N Events
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up leading-relaxed">
-            Established in June 2025, S&N Events is Randburg's newest premier event planning company, 
-            bringing fresh creativity and innovative ideas to create magical moments for our clients 
-            across South Africa.
+            Where celebrations are prioritized. Established in June 2025, S&N Events specializes in 
+            Private Receptions and Curated Events for intimate celebrations, believing that boutique 
+            gatherings have huge impact with VIP treatment for every guest.
           </p>
         </div>
       </section>
@@ -74,21 +74,21 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Nono and Shanna founded S&N Events in June 2025 with a simple yet powerful vision: 
-                  to create extraordinary experiences that celebrate life's most precious moments. 
-                  What started as a passion project in a small Randburg office has quickly taken shape
-                  as a full-service event planning company.
+                  Nono and Shanna founded S&N Events in June 2025 with a focused vision: 
+                  to create intimate, exclusive experiences for Private Receptions and Select Gatherings. 
+                  We believe that small gatherings have huge impact, and our specialized approach 
+                  ensures every guest receives VIP treatment.
                 </p>
                 <p>
-                  Since our launch, we've been building relationships with premier venues and vendors,
-                  designing unique event concepts, and creating customized experiences for our clients.
-                  Even in our short time operating, each event has taught us something valuable and
-                  reinforced our commitment to excellence.
+                  Since our launch, we've been curating relationships with venues perfect for intimate 
+                  settings, partnering with specialized vendors, and perfecting our approach to 
+                  personalized service. Each intimate gathering we coordinate reinforces our belief 
+                  that quality over quantity creates truly memorable experiences.
                 </p>
                 <p>
-                  Today, our team of dedicated professionals brings together diverse talents 
-                  in design, coordination, and client relations to ensure every event we touch 
-                  becomes an unforgettable memory.
+                  Our expertise spans event planning and coordination, mobile bar services, 
+                  personalized catering, small company gatherings, and beautiful décor setups 
+                  including picnic arrangements and balloon styling.
                 </p>
               </div>
             </div>
@@ -121,10 +121,10 @@ export default function About() {
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To transform your special occasions into extraordinary experiences through 
-                  innovative planning, creative design, and flawless execution. We believe 
-                  every celebration deserves to be perfect, and we're committed to making 
-                  that belief a reality for each of our clients.
+                  To create intimate, exclusive experiences for boutique celebrations and Private Receptions 
+                  where celebrations are prioritized. We believe that small gatherings have huge 
+                  impact, and we're committed to ensuring every guest receives VIP treatment 
+                  through personalized service and attention to detail.
                 </p>
               </CardContent>
             </Card>
@@ -135,10 +135,10 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To be South Africa's premier event planning company, known for our 
-                  creativity, reliability, and ability to exceed expectations. We envision 
-                  a future where every milestone celebration becomes a cherished memory 
-                  through our dedicated service.
+                  To be recognized as the specialists in intimate gatherings and exclusive 
+                  experiences, known for transforming small celebrations into unforgettable 
+                  moments. We envision a future where every intimate gathering becomes a 
+                  cherished memory through our VIP approach to personalized service.
                 </p>
               </CardContent>
             </Card>
@@ -187,8 +187,8 @@ export default function About() {
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our passionate team of event professionals brings creative expertise
-              and fresh perspectives to every project.
+              Our passionate team specializes in intimate gatherings, bringing creative expertise
+              and personalized service to create VIP experiences for every guest.
             </p>
           </div>
           

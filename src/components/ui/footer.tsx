@@ -18,13 +18,13 @@ export function Footer() {
               décor services in Randburg and across South Africa.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
                 <Instagram className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
+              <Button variant="secondary" size="icon" className="hover:bg-brand-gold hover:text-brand-navy">
                 <Twitter className="h-5 w-5" />
               </Button>
             </div>
@@ -79,7 +79,11 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-brand-gold" />
-                <span className="text-gray-300">0719835562</span>
+                <span className="text-gray-300">0719835562 (Shanna)</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 text-brand-gold" />
+                <span className="text-gray-300">0649841362 (Nono)</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-brand-gold" />
@@ -102,7 +106,7 @@ export function Footer() {
                   placeholder="Your email"
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
                 />
-                <Button variant="accent">
+                <Button variant="primary">
                   Subscribe
                 </Button>
               </div>

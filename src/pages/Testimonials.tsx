@@ -192,7 +192,7 @@ export default function Testimonials() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let us create an unforgettable experience for your next event
           </p>
-          <Button variant="accent" size="lg" asChild>
+          <Button variant="secondary" size="lg" asChild>
             <Link to="/contact">Book Your Consultation</Link>
           </Button>
         </div>

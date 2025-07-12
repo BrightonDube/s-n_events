@@ -90,13 +90,17 @@ export function Navigation() {
               <div className="px-3 py-2 space-y-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>0719835562</span>
+                  <span>0719835562 (Shanna)</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <Phone className="h-4 w-4" />
+                  <span>0649841362 (Nono)</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
                   <span>info@snevents.co.za</span>
                 </div>
-                <Button asChild className="w-full bg-gradient-gold">
+                <Button asChild className="w-full bg-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Book Consultation
                   </Link>

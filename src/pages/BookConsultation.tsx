@@ -254,7 +254,7 @@ export default function BookConsultation() {
                         <Button
                           key={mode.value}
                           type="button"
-                          variant={formData.consultationMode === mode.value ? "primary" : "outline"}
+                          variant={formData.consultationMode === mode.value ? "primary" : "secondary"}
                           className="justify-start"
                           onClick={() => handleInputChange("consultationMode", mode.value)}
                         >

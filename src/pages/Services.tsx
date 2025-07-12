@@ -1,109 +1,109 @@
-import { Check, Heart, Building, PartyPopper, Baby, Rocket, Palette } from "lucide-react";
+import { Check, Target, Users, PartyPopper, Wine, ChefHat, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const services = [
   {
-    icon: Heart,
-    title: "Wedding Planning & Coordination",
-    description: "Complete wedding services from engagement to reception",
+    icon: Target,
+    title: "Event Planning & Coordination",
+    description: "Comprehensive planning for Private Receptions and intimate celebrations",
     features: [
-      "Full wedding planning and coordination",
-      "Venue selection and booking",
+      "Personalized consultation and vision development",
+      "Venue selection and coordination",
       "Vendor management and coordination",
       "Timeline creation and management",
       "Day-of coordination services",
-      "Bridal party assistance",
-      "Wedding rehearsal coordination",
-      "Emergency problem solving"
+      "Event staffing coordination",
+      "Budget management and tracking",
+      "Post-event coordination"
     ],
-    price: "From R15,000",
+
     popular: true
   },
   {
-    icon: Building,
-    title: "Corporate Events",
-    description: "Professional business events that enhance your brand",
+    icon: Users,
+    title: "Small Company Gatherings",
+    description: "CEO meetings, executive retreats, and intimate team building",
     features: [
-      "Conference and seminar planning",
-      "Corporate gala dinners",
-      "Team building events",
-      "Product launches",
-      "Award ceremonies",
-      "Board meetings and retreats",
-      "Trade show coordination",
-      "Client entertainment events"
+      "CEO meetings and executive sessions",
+      "Small team building experiences",
+      "Executive retreat planning",
+      "Board meetings coordination",
+      "Networking session planning",
+      "Professional atmosphere creation",
+      "Meeting facilitation support",
+      "Small group dynamics optimization"
     ],
-    price: "From R8,000",
+
     popular: false
   },
   {
     icon: PartyPopper,
-    title: "Private Parties",
-    description: "Intimate celebrations tailored to your vision",
+    title: "Private Celebrations",
+    description: "Intimate celebrations and bespoke gatherings for special occasions",
     features: [
-      "Birthday party planning",
+      "Birthday celebrations (milestone birthdays)",
       "Anniversary celebrations",
-      "Graduation parties",
+      "Small family gatherings",
       "Holiday celebrations",
-      "Themed party coordination",
-      "Entertainment booking",
-      "Catering coordination",
-      "Party favors and gifts"
+      "Themed intimate parties",
+      "Personalized entertainment coordination",
+      "Special occasion coordination",
+      "Memory-making experiences"
     ],
-    price: "From R5,000",
+
     popular: false
   },
   {
-    icon: Baby,
-    title: "Baby Showers & Gender Reveals",
-    description: "Celebrating life's precious new beginnings",
+    icon: Wine,
+    title: "Mobile Bar Services",
+    description: "Professional cocktail services for your intimate gathering",
     features: [
-      "Baby shower planning",
-      "Gender reveal parties",
-      "Christening celebrations",
-      "First birthday parties",
-      "Themed decorations",
-      "Game coordination",
-      "Photography arrangements",
-      "Keepsake creation"
+      "Professional bartender service",
+      "Premium beverage selection",
+      "Custom cocktail menu creation",
+      "Mobile bar setup and styling",
+      "Glassware and bar equipment",
+      "Cocktail consultation and tasting",
+      "Non-alcoholic specialty drinks",
+      "Bar setup and breakdown"
     ],
-    price: "From R3,500",
+
     popular: false
   },
   {
-    icon: Rocket,
-    title: "Product Launches",
-    description: "Memorable launches that create buzz",
+    icon: ChefHat,
+    title: "Personalized Catering",
+    description: "All types of personalized catering for intimate dining experiences",
     features: [
-      "Launch event planning",
-      "Media coordination",
-      "Influencer management",
-      "Brand activation",
-      "Press conference setup",
-      "Product demonstration areas",
-      "Photography and videography",
-      "Social media coordination"
+      "Custom menu development",
+      "Dietary restriction accommodation",
+      "Intimate dining experience design",
+      "Premium ingredient sourcing",
+      "Professional service staff",
+      "Table service coordination",
+      "Special occasion cake coordination",
+      "Beverage pairing recommendations"
     ],
-    price: "From R12,000",
+
     popular: false
   },
   {
     icon: Palette,
-    title: "Event Décor & Styling",
-    description: "Transform any space with stunning design",
+    title: "Event Décor & Setup",
+    description: "Beautiful décor for intimate events - picnic setups, backdrops, and balloon décor",
     features: [
-      "Complete venue transformation",
-      "Floral arrangements",
-      "Lighting design",
-      "Furniture and linen rental",
-      "Centerpiece creation",
-      "Backdrop and stage design",
-      "Color scheme coordination",
-      "Theme implementation"
+      "Picnic setup with styling",
+      "Custom backdrop design and setup",
+      "Balloon décor arrangements",
+      "Table styling and centerpieces",
+      "Lighting and ambiance creation",
+      "Theme-based decoration",
+      "Setup and breakdown services",
+      "Photography-ready styling"
     ],
-    price: "From R4,000",
+
     popular: false
   }
 ];
@@ -114,7 +114,7 @@ const faqs = [
     questions: [
       {
         question: "How far in advance should I book your services?",
-        answer: "We recommend booking at least 3-6 months in advance for weddings and major events. For smaller celebrations, 4-6 weeks is usually sufficient. However, we can accommodate shorter timelines depending on availability."
+        answer: "For Private Receptions and intimate celebrations, we recommend booking 2-8 weeks in advance. However, we can often accommodate shorter timelines depending on availability and service requirements."
       },
       {
         question: "Do you provide services outside of Randburg?",
@@ -122,7 +122,7 @@ const faqs = [
       },
       {
         question: "What's included in your planning packages?",
-        answer: "Our packages vary by service type and can be customized to your needs. Generally, they include initial consultation, planning coordination, vendor management, timeline creation, and day-of coordination."
+        answer: "Our packages are fully customized for boutique celebrations and Select Gatherings. They include personalized consultation, planning coordination, vendor management, timeline creation, and day-of coordination with VIP attention to every guest."
       }
     ]
   },
@@ -220,10 +220,7 @@ export default function Services() {
                   </div>
                   
                   <div className="pt-4 border-t">
-                    <div className="text-2xl font-bold text-brand-navy mb-4">
-                      {service.price}
-                    </div>
-                    <Button className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy" asChild>
+                    <Button className="w-full" variant="primary" asChild>
                       <a href="/contact">Get Quote</a>
                     </Button>
                   </div>
@@ -290,10 +287,12 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
-              Frequently Asked Questions
+              Our Services
             </h2>
             <p className="text-lg text-muted-foreground">
-              Find answers to common questions about our services
+              Where celebrations are prioritized. Specializing in intimate gatherings
+              and Curated Events for intimate celebrations, we believe that boutique
+              gatherings have huge impact with VIP treatment for every guest.
             </p>
           </div>
           
@@ -329,17 +328,17 @@ export default function Services() {
       <section className="py-20 bg-gradient-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-serif text-4xl font-bold mb-6">
-            Ready to Start Planning?
+            Ready to Create Your Perfect Intimate Celebration?
           </h2>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Let's discuss your event requirements and create a customized 
-            proposal that fits your vision and budget.
+            Let's discuss your vision for your Private Reception or Select Gathering and create a 
+            personalized experience that exceeds your expectations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold" asChild>
               <a href="/contact">Get Free Quote</a>
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy" asChild>
+            <Button variant="secondary" size="lg" asChild>
               <a href="/book-consultation">Schedule Consultation</a>
             </Button>
           </div>

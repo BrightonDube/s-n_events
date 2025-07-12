@@ -358,7 +358,7 @@ export default function Blog() {
               {categories.map((category) => (
                 <Button
                   key={category}
-                  variant={selectedCategory === category ? "primary" : "outline"}
+                  variant={selectedCategory === category ? "primary" : "secondary"}
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -500,7 +500,7 @@ export default function Blog() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let our expert team bring your vision to life with professional planning and stunning décor
           </p>
-          <Button variant="accent" size="lg" asChild>
+          <Button variant="secondary" size="lg" asChild>
             <a href="/contact">Get Started Today</a>
           </Button>
         </div>
@@ -513,7 +513,7 @@ export default function Blog() {
             <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center z-10">
               <h2 className="font-serif text-2xl font-bold text-brand-accent">{selectedPost.title}</h2>
               <Button 
-                variant="ghost" 
+                variant="secondary" 
                 size="icon" 
                 onClick={() => setSelectedPost(null)}
                 className="rounded-full"

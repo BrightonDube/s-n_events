@@ -265,11 +265,12 @@ Submitted on: ${new Date().toLocaleString()}
                           <SelectValue placeholder="Select event type" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="wedding">Wedding</SelectItem>
-                          <SelectItem value="corporate">Corporate Event</SelectItem>
-                          <SelectItem value="party">Private Party</SelectItem>
-                          <SelectItem value="baby-shower">Baby Shower</SelectItem>
-                          <SelectItem value="launch">Product Launch</SelectItem>
+                          <SelectItem value="private-reception">Private Reception</SelectItem>
+                          <SelectItem value="curated-event">Curated Event</SelectItem>
+                          <SelectItem value="select-gathering">Select Gathering</SelectItem>
+                          <SelectItem value="boutique-celebration">Boutique Celebration</SelectItem>
+                          <SelectItem value="ceo-meeting">CEO Meeting</SelectItem>
+                          <SelectItem value="small-company-gathering">Small Company Gathering</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                       </Select>
@@ -455,7 +456,7 @@ Submitted on: ${new Date().toLocaleString()}
                   340 Surrey Avenue, Ferndale, Randburg, 2194
                 </p>
                 <Button 
-                  variant="outline" 
+                  variant="secondary" 
                   className="mt-2 text-sm"
                   onClick={() => window.open('https://maps.google.com/?q=340+Surrey+Avenue,+Ferndale,+Randburg,+2194', '_blank')}
                   size="sm"

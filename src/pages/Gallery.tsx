@@ -94,7 +94,7 @@ export default function Gallery() {
               return (
                 <Button
                   key={category.id}
-                  variant={activeCategory === category.id ? "primary" : "outline"}
+                  variant={activeCategory === category.id ? "primary" : "secondary"}
                   onClick={() => setActiveCategory(category.id)}
                   className="flex items-center gap-2"
                 >
@@ -182,7 +182,7 @@ export default function Gallery() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let us bring your South African celebration to life with our local expertise and stunning décor
           </p>
-          <Button variant="accent" size="lg" asChild>
+          <Button variant="secondary" size="lg" asChild>
             <a href="/contact">Start Planning Today</a>
           </Button>
         </div>

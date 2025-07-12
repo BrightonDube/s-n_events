@@ -5,7 +5,7 @@ const teamMembers = [
   {
     name: "Nono",
     role: "Co-Director",
-    image: "/api/placeholder/300/300",
+    image: "/placeholder.svg",
     bio: "With extensive experience in event planning and client relations, Nono brings passion and dedication to creating unforgettable celebrations.",
     social: {
       linkedin: "#",
@@ -15,7 +15,7 @@ const teamMembers = [
   {
     name: "Shanna",
     role: "Co-Director",
-    image: "/api/placeholder/300/300",
+    image: "/placeholder.svg",
     bio: "Shanna's creative vision and attention to detail ensure every event reflects our clients' unique style and exceeds their expectations.",
     social: {
       linkedin: "#",

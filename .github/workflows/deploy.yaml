@@ -1,0 +1,33 @@
+# This is the name of our workflow. It will show up in the "Actions" tab on GitHub.
+name: Deploy Website to cPanel
+
+# This section defines when the workflow should run.
+on:
+  # We want it to run every time we push code...
+  push:
+    # ...but only when we push to the "main" branch. You can change this to "master" if you use that.
+    branches: [ "main" ]
+
+# This section defines the actual work to be done.
+jobs:
+  # We'll have a single job called "deploy"
+  deploy:
+    # The job will run on a fresh, virtual computer provided by GitHub (Ubuntu is a good choice)
+    runs-on: ubuntu-latest
+    
+    # These are the individual steps the job will take
+    steps:
+      # Step 1: Check out a copy of your repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Use a pre-made "Action" to upload files via FTP
+      - name: FTP Deploy
+        # This is a popular and reliable Action for FTP transfers
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          # We are telling the Action to use the secrets we created earlier
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.SERVER_DESTINATION }}

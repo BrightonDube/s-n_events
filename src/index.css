@@ -2,9 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Book Free Consultation buttons on Home.tsx: white bg + dark text on hover */
+.bg-brand-gold:hover, .bg-brand-gold:focus,
+.bg-brand-gold\/95:hover, .bg-brand-gold\/95:focus {
+  background: #fff !important;
+  color: var(--brand-accent, #2d1b1a) !important;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Animate ArrowRight icon in Book Free Consultation button on hover: rotate upwards */
+.bg-brand-gold\/95 .ml-2 {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.bg-brand-gold\/95:hover .ml-2,
+.bg-brand-gold\/95:focus .ml-2 {
+  transform: rotate(-90deg);
+}
+
+/* Book Consultation button hover effect */
+.bg-gradient-gold:hover, .bg-gradient-gold:focus {
+  background: #E9638F !important;
+  color: var(--brand-accent, #2d1b1a) !important;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* View All Services button hover effect (Home.tsx:L348-L352) */
+.bg-gradient-primary .ml-2 {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+/* .bg-gradient-primary:hover, .bg-gradient-primary:focus {
+  background: #2d1b1a !important;
+  color: #fff !important;
+  transition: background 0.7s cubic-bezier(0.4,0,0.2,1), color 0.4s;
+} */
+.bg-gradient-primary:hover .ml-2,
+.bg-gradient-primary:focus .ml-2 {
+  transform: rotate(-90deg);
+}
+
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
+
+/* Bottom section buttons with dark brown hover effect */
+.bg-brand-gold.border-brand-navy:hover,
+.bg-brand-gold.border-brand-navy:focus {
+  background: #2d1b1a !important;
+  color: #fff !important;
+  border-color: #2d1b1a !important;
+  transition: all 0.3s;
+}
+
+/* Learn About Us button hover effect */
+[variant="outline-white"]:hover,
+[variant="outline-white"]:focus {
+  background: #2d1b1a !important;
+  color: #fff !important;
+  border-color: #2d1b1a !important;
+  transition: all 0.3s;
+}
 
 @layer base {
   :root {

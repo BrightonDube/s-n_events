@@ -29,8 +29,8 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Hours",
-    details: ["Mon - Fri: 9:00 - 17:00", "Sat: 9:00 - 13:00", "Sun: By appointment"],
-    description: "Emergency contact available 24/7"
+    details: ["7am – 11pm every day"],
+    description: "Our team is available during these hours."
   }
 ];
 
@@ -46,32 +46,140 @@ export default function Contact() {
     budget: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+  // Sanitize input to prevent XSS
+  const sanitizeInput = (input: string): string => {
+    return input.trim().replace(/<script[^>]*>.*?<\/script>/gi, '').replace(/<[^>]*>/g, '');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Validate email format
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Validate phone number (South African format)
+  const isValidPhone = (phone: string): boolean => {
+    const phoneRegex = /^(\+27|0)[6-8][0-9]{8}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
+  };
+
+  // Validate form
+  const validateForm = (): boolean => {
+    const newErrors: {[key: string]: string} = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!isValidEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!isValidPhone(formData.phone)) {
+      newErrors.phone = "Please enter a valid South African phone number";
+    }
+
+    if (!formData.eventType) {
+      newErrors.eventType = "Please select an event type";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    const sanitizedValue = sanitizeInput(value);
+    setFormData(prev => ({
+      ...prev,
+      [field]: sanitizedValue
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: "" }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-    });
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      eventType: "",
-      eventDate: "",
-      guestCount: "",
-      budget: "",
-      message: "",
-    });
+    
+    if (!validateForm()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Create email body
+      const emailBody = `
+New Contact Form Submission from S&N Events Website
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Event Type: ${formData.eventType}
+Event Date: ${formData.eventDate || 'Not specified'}
+Guest Count: ${formData.guestCount || 'Not specified'}
+Budget: ${formData.budget || 'Not specified'}
+
+Message:
+${formData.message}
+
+---
+Submitted on: ${new Date().toLocaleString()}
+      `;
+
+      // Use mailto for now - in production, this would be replaced with a proper email service
+      const mailtoLink = `mailto:info@snnevents.co.za?subject=New Contact Form Submission - ${formData.eventType}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Open mailto link
+      window.open(mailtoLink, '_blank');
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        eventType: "",
+        eventDate: "",
+        guestCount: "",
+        budget: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -115,7 +223,9 @@ export default function Contact() {
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
                         placeholder="Your full name"
+                        className={errors.name ? "border-red-500" : ""}
                       />
+                      {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-brand-navy mb-2">
@@ -127,27 +237,31 @@ export default function Contact() {
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         placeholder="your@email.com"
+                        className={errors.email ? "border-red-500" : ""}
                       />
+                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-brand-navy mb-2">
-                        Phone Number
+                        Phone Number *
                       </label>
                       <Input
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         placeholder="+27 xx xxx xxxx"
+                        className={errors.phone ? "border-red-500" : ""}
                       />
+                      {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-brand-navy mb-2">
                         Event Type *
                       </label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className={errors.eventType ? "border-red-500" : ""}>
                           <SelectValue placeholder="Select event type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -159,6 +273,7 @@ export default function Contact() {
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.eventType && <p className="text-red-500 text-sm mt-1">{errors.eventType}</p>}
                     </div>
                   </div>
 
@@ -220,12 +335,18 @@ export default function Contact() {
                       onChange={(e) => handleInputChange("message", e.target.value)}
                       placeholder="Tell us about your event vision, specific requirements, or any questions you have..."
                       rows={5}
+                      className={errors.message ? "border-red-500" : ""}
                     />
+                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                   </div>
 
-                  <Button type="submit" className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy font-semibold">
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={isSubmitting}
+                  >
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
@@ -357,25 +478,15 @@ export default function Contact() {
             <Card>
               <CardContent className="p-8">
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center py-2 border-b border-muted">
-                    <span className="font-medium">Monday - Friday</span>
-                    <span className="text-muted-foreground">9:00 AM - 5:00 PM</span>
+                  <div className="flex justify-between items-center py-2 text-center">
+                    <span className="font-medium text-brand-navy">Every Day</span>
+                    <span className="text-brand-gold font-semibold">7:00 AM - 11:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-muted">
-                    <span className="font-medium">Saturday</span>
-                    <span className="text-muted-foreground">9:00 AM - 1:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="font-medium">Sunday</span>
-                    <span className="text-muted-foreground">By Appointment Only</span>
-                  </div>
-                </div>
-                <div className="mt-6 p-4 bg-brand-champagne rounded-lg">
-                  <p className="text-brand-navy text-sm">
-                    <strong>Emergency Contact:</strong> For urgent event day issues, 
-                    our emergency line is available 24/7 during event weekends.
+                  <p className="text-sm text-muted-foreground mt-4 text-center">
+                    Available 7 days a week to make your event dreams come true
                   </p>
                 </div>
+
               </CardContent>
             </Card>
           </div>

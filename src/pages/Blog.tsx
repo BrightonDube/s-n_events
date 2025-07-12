@@ -54,10 +54,10 @@ Remember why you're doing this - to celebrate your love. Don't get lost in perfe
 
 At S&N Events, we guide couples through every step of this journey, ensuring your special day reflects your unique love story while honoring South African traditions and beauty.`,
     category: "Wedding Planning",
-    author: "Nono Dube",
+    author: "Nono",
     date: "2024-12-15",
     readTime: "8 min read",
-    image: "/src/assets/hero-wedding.jpg",
+    image: "/src/assets/sa-wedding-decor6.jpg",
     tags: ["Wedding Tips", "Planning", "South Africa", "Budget"]
   },
   {
@@ -158,10 +158,10 @@ Events are becoming more inclusive and culturally aware:
 
 At S&N Events, we stay ahead of these trends to deliver cutting-edge corporate experiences that resonate with modern South African businesses and their global partners.`,
     category: "Corporate Events",
-    author: "Shanna Williams",
+    author: "Shanna",
     date: "2024-12-10",
     readTime: "12 min read",
-    image: "/src/assets/hero-corporate.jpg",
+    image: "/src/assets/corporate-2.jpg",
     tags: ["Corporate Events", "Trends", "2025", "Business", "Technology"]
   },
   {
@@ -304,10 +304,10 @@ South African events celebrate diversity:
 
 At S&N Events, our décor team combines artistic vision with practical expertise to create spaces that not only look beautiful but also function perfectly for your event's unique needs.`,
     category: "Décor Ideas",
-    author: "Nono Dube",
+    author: "Nono",
     date: "2024-12-05",
     readTime: "10 min read",
-    image: "/src/assets/hero-party.jpg",
+    image: "/src/assets/muse-concepts-017.jpg",
     tags: ["Décor", "Design", "Color Psychology", "Lighting", "Atmosphere"]
   }
 ];
@@ -543,17 +543,10 @@ export default function Blog() {
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
               
+              import ReactMarkdown from 'react-markdown';
+
               <div className="prose prose-pink max-w-none">
-                {selectedPost.content.split('\n\n').map((paragraph, index) => {
-                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                    // It's a heading
-                    const heading = paragraph.replace(/\*\*/g, '');
-                    return <h3 key={index} className="font-bold text-xl my-4">{heading}</h3>;
-                  } else {
-                    // It's a regular paragraph
-                    return <p key={index} className="mb-4">{paragraph}</p>;
-                  }
-                })}
+                <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
               </div>
               
               <div className="mt-8 pt-4 border-t">

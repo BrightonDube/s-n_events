@@ -26,7 +26,7 @@ const galleryItems = [
     category: "corporate",
     title: "Vodacom Annual Conference",
     description: "Sophisticated corporate event at Sandton Convention Centre",
-    image: "/src/assets/hero-corporate.jpg",
+    image: "/src/assets/vodacom.jpg",
     client: "Vodacom South Africa"
   },
   {
@@ -42,23 +42,23 @@ const galleryItems = [
     category: "weddings",
     title: "Lourensford Wine Estate Wedding",
     description: "Cape Dutch elegance with vineyard views and protea arrangements",
-    image: "/src/assets/hero-wedding.jpg",
+    image: "/src/assets/garden-wedding.jpg",
     client: "Johan & Annika"
   },
   {
     id: 5,
     category: "corporate",
-    title: "Standard Bank Year-End Function",
+    title: "Coapsbeny Year-End Function",
     description: "Modern African-inspired decor with sophisticated networking areas",
     image: "/src/assets/hero-corporate.jpg",
-    client: "Standard Bank"
+    client: "Coapsbeny"
   },
   {
     id: 6,
     category: "baby",
-    title: "Ndebele-Inspired Baby Shower",
+    title: "Baby Shower",
     description: "Cultural elements with modern touches at The Westcliff",
-    image: "/src/assets/hero-party.jpg",
+    image: "/src/assets/baby-shower.jpg",
     client: "Nthabiseng's Baby Shower"
   }
 ];

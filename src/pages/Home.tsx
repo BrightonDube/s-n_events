@@ -121,12 +121,12 @@ const testimonials = [
   {
     name: "Duduzani Mthembu",
     text: "Outstanding corporate event management. Professional, creative, and stress-free experience.",
-    rating: 5,
+    rating: 4,
   },
   {
     name: "Oratile Molefe",
     text: "They turned our vision into reality. Couldn't have asked for a better team!",
-    rating: 5,
+    rating: 4,
   },
 ];
 
@@ -229,20 +229,22 @@ export default function Home() {
         ))}
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-                {heroSlides[currentSlide].title}
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-fade-in-up">
-                {heroSlides[currentSlide].subtitle}
-              </p>
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-block w-full md:w-auto bg-white/40 dark:bg-white/20 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 px-8 py-8 mb-6 animate-fade-in-up">
+                <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 text-brand-navy drop-shadow-md">
+                  {heroSlides[currentSlide].title}
+                </h1>
+                <p className="text-xl md:text-2xl mb-0 text-brand-navy/90 animate-fade-in-up">
+                  {heroSlides[currentSlide].subtitle}
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                <Button asChild size="lg" className="bg-gradient-gold hover:shadow-gold text-brand-navy font-semibold">
+                <Button asChild size="lg" className="bg-brand-gold/95 backdrop-blur-lg hover:bg-brand-gold hover:shadow-gold text-brand-navy font-bold border border-brand-navy/30 shadow-xl drop-shadow-lg">
                   <Link to="/contact">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline-white" size="lg">
+                <Button asChild size="lg" className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-navy font-bold border border-white/70 shadow-xl drop-shadow-lg">
                   <Link to="/gallery">View Our Work</Link>
                 </Button>
               </div>
@@ -369,10 +371,10 @@ export default function Home() {
               <Card key={index} className="border-l-4 border-l-brand-gold">
                 <CardContent className="p-6">
                   <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-brand-gold text-brand-gold" />
-                    ))}
-                  </div>
+  {[...Array(testimonial.rating)].map((_, i) => (
+    <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400 drop-shadow" />
+  ))}
+</div>
                   <p className="text-muted-foreground mb-4 italic">
                     "{testimonial.text}"
                   </p>
@@ -409,7 +411,7 @@ export default function Home() {
                 Book Free Consultation
               </Link>
             </Button>
-            <Button asChild variant="outline-white" size="lg">
+            <Button asChild size="lg" className="bg-brand-gold text-brand-navy hover:bg-brand-gold-light font-semibold border border-brand-navy">
               <Link to="/about">
                 <Users className="mr-2 h-5 w-5" />
                 Learn About Us

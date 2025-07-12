@@ -45,7 +45,7 @@ jobs:
           server: ${{ secrets.SSH_HOST }}           #
           username: ${{ secrets.SSH_USERNAME }}     
           password: ${{ secrets.SSH_PASSWORD }}     # 
-          port: ${{ secrets.SSH_PORT }}             # set to: 21 for FTP, but keeping variable
+          port: ${{ secrets.SSH_PORT }}             # to: 21 for FTP, but keeping variable
           local-dir: './dist/'
           server-dir: ${{ secrets.SSH_TARGET_DIR }} # set to: /public_html/ (or your actual web root)
           protocol: ftp

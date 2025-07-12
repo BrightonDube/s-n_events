@@ -36,25 +36,21 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 5: Deploy built files via FTP
-      - name: FTP Deploy
-        # This is a popular and reliable Action for FTP transfers
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # Step 5: Deploy built files via SFTP
+      - name: SFTP Deploy
+        uses: easingthemes/ssh-deploy@v5.0.3
         with:
-          # We are telling the Action to use the secrets we created earlier
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.SERVER_DESTINATION }}
+          # SSH connection details from secrets
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT || 22 }}
           # Upload the built files from the dist directory
-          local-dir: ./dist/
-          # Exclude source files and development dependencies
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/src/**
-            **/*.md
-            **/package*.json
-            **/vite.config.ts
-            **/tsconfig*.json
+          SOURCE: dist/
+          TARGET: ${{ secrets.SSH_TARGET_DIR }}
+          # Exclude unnecessary files
+          EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
+          # Script to run after upload (optional)
+          SCRIPT_AFTER: |
+            echo "Deployment completed successfully!"
+            ls -la ${{ secrets.SSH_TARGET_DIR }}

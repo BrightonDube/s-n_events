@@ -2,6 +2,14 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Heart, Building, Baby, Gift } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
+import heroWedding from "@/assets/hero-wedding.jpg";
+import heroCorporate from "@/assets/hero-corporate.jpg";
+import heroParty from "@/assets/hero-party.jpg";
+import gardenWedding from "@/assets/garden-wedding.jpg";
+import vodacom from "@/assets/vodacom.jpg";
+import babyShower from "@/assets/baby-shower.jpg";
 
 const categories = [
   { id: "all", name: "All Events", icon: Calendar },
@@ -18,7 +26,7 @@ const galleryItems = [
     category: "weddings",
     title: "Shepstone Gardens Wedding",
     description: "A blend of traditional and modern elements in a lush garden setting",
-    image: "/src/assets/hero-wedding.jpg",
+    image: heroWedding,
     client: "Thabo & Lerato"
   },
   {
@@ -26,7 +34,7 @@ const galleryItems = [
     category: "corporate",
     title: "Vodacom Annual Conference",
     description: "Sophisticated corporate event at Sandton Convention Centre",
-    image: "/src/assets/vodacom.jpg",
+    image: vodacom,
     client: "Vodacom South Africa"
   },
   {
@@ -34,7 +42,7 @@ const galleryItems = [
     category: "parties",
     title: "40th at Melrose Arch",
     description: "Vibrant birthday celebration with custom decor and entertainment",
-    image: "/src/assets/hero-party.jpg",
+    image: heroParty,
     client: "Priya's 40th"
   },
   {
@@ -42,7 +50,7 @@ const galleryItems = [
     category: "weddings",
     title: "Lourensford Wine Estate Wedding",
     description: "Cape Dutch elegance with vineyard views and protea arrangements",
-    image: "/src/assets/garden-wedding.jpg",
+    image: gardenWedding,
     client: "Johan & Annika"
   },
   {
@@ -50,7 +58,7 @@ const galleryItems = [
     category: "corporate",
     title: "Coapsbeny Year-End Function",
     description: "Modern African-inspired decor with sophisticated networking areas",
-    image: "/src/assets/hero-corporate.jpg",
+    image: heroCorporate,
     client: "Coapsbeny"
   },
   {
@@ -58,7 +66,7 @@ const galleryItems = [
     category: "baby",
     title: "Baby Shower",
     description: "Cultural elements with modern touches at The Westcliff",
-    image: "/src/assets/baby-shower.jpg",
+    image: babyShower,
     client: "Nthabiseng's Baby Shower"
   }
 ];
@@ -74,19 +82,28 @@ export default function Gallery() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
             Our Gallery
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
             Explore our portfolio of unforgettable South African events and celebrations
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Category Filter */}
-      <section className="py-12 bg-brand-cream">
+      <section className="py-12 bg-brand-secondary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {categories.map((category) => {

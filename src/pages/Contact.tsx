@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -185,17 +187,26 @@ Submitted on: ${new Date().toLocaleString()}
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <AuroraBackground className="h-[60vh]" showRadialGradient={true}>
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
             Contact Us
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in-up">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
             Ready to start planning your perfect event? Get in touch with our team 
             for a free consultation and personalized quote.
           </p>
-        </div>
-      </section>
+        </motion.div>
+      </AuroraBackground>
 
       {/* Contact Form & Info */}
       <section className="py-20 bg-background">
@@ -204,7 +215,7 @@ Submitted on: ${new Date().toLocaleString()}
             {/* Contact Form */}
             <Card className="shadow-elegant">
               <CardHeader>
-                <CardTitle className="font-serif text-2xl text-brand-navy">
+                <CardTitle className="font-serif text-2xl text-brand-accent">
                   Send Us a Message
                 </CardTitle>
                 <p className="text-muted-foreground">
@@ -215,7 +226,7 @@ Submitted on: ${new Date().toLocaleString()}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Full Name *
                       </label>
                       <Input
@@ -228,7 +239,7 @@ Submitted on: ${new Date().toLocaleString()}
                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Email Address *
                       </label>
                       <Input
@@ -245,7 +256,7 @@ Submitted on: ${new Date().toLocaleString()}
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Phone Number *
                       </label>
                       <Input
@@ -257,7 +268,7 @@ Submitted on: ${new Date().toLocaleString()}
                       {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Event Type *
                       </label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
@@ -280,7 +291,7 @@ Submitted on: ${new Date().toLocaleString()}
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Preferred Event Date
                       </label>
                       <Input
@@ -290,7 +301,7 @@ Submitted on: ${new Date().toLocaleString()}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-brand-navy mb-2">
+                      <label className="block text-sm font-medium text-brand-accent mb-2">
                         Expected Guest Count
                       </label>
                       <Select value={formData.guestCount} onValueChange={(value) => handleInputChange("guestCount", value)}>
@@ -309,7 +320,7 @@ Submitted on: ${new Date().toLocaleString()}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-brand-navy mb-2">
+                    <label className="block text-sm font-medium text-brand-accent mb-2">
                       Budget Range
                     </label>
                     <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
@@ -327,7 +338,7 @@ Submitted on: ${new Date().toLocaleString()}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-brand-navy mb-2">
+                    <label className="block text-sm font-medium text-brand-accent mb-2">
                       Message *
                     </label>
                     <Textarea
@@ -343,7 +354,8 @@ Submitted on: ${new Date().toLocaleString()}
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-gold hover:shadow-gold text-brand-navy font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    variant="primary"
+                    className="w-full disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={isSubmitting}
                   >
                     <Send className="mr-2 h-4 w-4" />
@@ -356,7 +368,7 @@ Submitted on: ${new Date().toLocaleString()}
             {/* Contact Information */}
             <div className="space-y-6">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-brand-navy mb-6">
+                <h2 className="font-serif text-3xl font-bold text-brand-accent mb-6">
                   Get In Touch
                 </h2>
                 <p className="text-muted-foreground mb-8">
@@ -371,12 +383,12 @@ Submitted on: ${new Date().toLocaleString()}
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0">
-                          <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-gold/10 rounded-full">
-                            <info.icon className="h-6 w-6 text-brand-gold" />
+                          <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-primary/10 rounded-full">
+                            <info.icon className="h-6 w-6 text-brand-primary" />
                           </div>
                         </div>
                         <div>
-                          <h3 className="font-semibold text-brand-navy mb-2">
+                          <h3 className="font-semibold text-brand-accent mb-2">
                             {info.title}
                           </h3>
                           <div className="space-y-1">
@@ -429,7 +441,7 @@ Submitted on: ${new Date().toLocaleString()}
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Visit Our Office
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -452,7 +464,7 @@ Submitted on: ${new Date().toLocaleString()}
                 ></iframe>
               </div>
               <CardContent className="p-4 text-center">
-                <p className="text-sm font-medium text-brand-navy">
+                <p className="text-sm font-medium text-brand-accent">
                   340 Surrey Avenue, Ferndale, Randburg, 2194
                 </p>
                 <Button 
@@ -473,15 +485,15 @@ Submitted on: ${new Date().toLocaleString()}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-8">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-8">
               Operating Hours
             </h2>
             <Card>
               <CardContent className="p-8">
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 text-center">
-                    <span className="font-medium text-brand-navy">Every Day</span>
-                    <span className="text-brand-gold font-semibold">7:00 AM - 11:00 PM</span>
+                    <span className="font-medium text-brand-accent">Every Day</span>
+                    <span className="text-brand-primary font-semibold">7:00 AM - 11:00 PM</span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-4 text-center">
                     Available 7 days a week to make your event dreams come true

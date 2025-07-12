@@ -9,7 +9,6 @@ const navItems = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Gallery", href: "/gallery" },
-  { name: "Testimonials", href: "/testimonials" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -79,8 +78,8 @@ export function Navigation() {
                   className={cn(
                     "block px-3 py-2 text-base font-medium transition-colors",
                     isActive(item.href)
-                      ? "text-brand-gold bg-brand-champagne"
-                      : "text-foreground hover:text-brand-gold hover:bg-muted"
+                      ? "text-brand-primary bg-brand-secondary"
+                      : "text-foreground hover:text-brand-primary hover:bg-muted"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -98,9 +97,9 @@ export function Navigation() {
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
-                  <span>info@snevents.co.za</span>
+                  <span>info@snnevents.co.za</span>
                 </div>
-                <Button asChild className="w-full bg-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-white transition-colors">
+                <Button asChild variant="outline" className="w-full">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Book Consultation
                   </Link>

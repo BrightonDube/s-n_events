@@ -5,22 +5,16 @@ const teamMembers = [
   {
     name: "Nono",
     role: "Co-Director",
-    image: "/placeholder.svg",
-    bio: "Nono specializes in intimate event coordination and client relations, bringing passion and dedication to creating exclusive experiences for Private Receptions and boutique celebrations.",
-    social: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    phone: "+27 64 984 1362",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    bio: "Nono specializes in intimate event coordination and client relations, bringing passion and dedication to creating exclusive experiences for Private Receptions and boutique celebrations."
   },
   {
-    name: "Shanna",
+    name: "Shanna", 
     role: "Co-Director",
-    image: "/placeholder.svg",
-    bio: "Shanna's creative vision and attention to detail specialize in personalized catering, mobile bar services, and beautiful décor setups that make every intimate gathering special.",
-    social: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    phone: "+27 71 983 5562",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    bio: "Shanna's creative vision and attention to detail specialize in personalized catering, mobile bar services, and beautiful décor setups that make every intimate gathering special."
   }
 ];
 
@@ -69,7 +63,7 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-4xl font-bold text-brand-navy mb-6">
+              <h2 className="font-serif text-4xl font-bold text-brand-accent mb-6">
                 Our Story
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -100,7 +94,7 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-brand-gold text-brand-navy p-6 rounded-lg shadow-gold">
+              <div className="absolute -bottom-6 -right-6 bg-brand-primary text-white p-6 rounded-lg shadow-primary">
                 <div className="text-center">
                   <div className="text-3xl font-bold">June</div>
                   <div className="text-sm">2025 Founded</div>
@@ -115,9 +109,9 @@ export default function About() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <Card className="border-l-4 border-l-brand-gold">
+            <Card className="border-l-4 border-l-brand-primary">
               <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-bold text-brand-navy mb-4">
+                <h3 className="font-serif text-2xl font-bold text-brand-accent mb-4">
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -129,9 +123,9 @@ export default function About() {
               </CardContent>
             </Card>
             
-            <Card className="border-l-4 border-l-brand-navy">
+            <Card className="border-l-4 border-l-brand-accent">
               <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-bold text-brand-navy mb-4">
+                <h3 className="font-serif text-2xl font-bold text-brand-accent mb-4">
                   Our Vision
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -150,7 +144,7 @@ export default function About() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Our Core Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -163,10 +157,10 @@ export default function About() {
             {values.map((value, index) => (
               <Card key={index} className="text-center hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold/10 rounded-full mb-4">
-                    <value.icon className="h-8 w-8 text-brand-gold" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary/10 rounded-full mb-4">
+                    <value.icon className="h-8 w-8 text-brand-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl text-brand-navy mb-3">
+                  <h3 className="font-semibold text-xl text-brand-accent mb-3">
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -183,7 +177,7 @@ export default function About() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-navy mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -203,10 +197,10 @@ export default function About() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-xl text-brand-navy mb-1">
+                  <h3 className="font-semibold text-xl text-brand-accent mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-brand-gold mb-3 font-medium">
+                  <p className="text-brand-primary mb-3 font-medium">
                     {member.role}
                   </p>
                   <p className="text-muted-foreground text-sm">

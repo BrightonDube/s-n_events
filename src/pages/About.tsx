@@ -104,12 +104,12 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-brand-primary text-white p-6 rounded-lg shadow-primary">
+              {/* <div className="absolute -bottom-6 -right-6 bg-brand-primary text-white p-6 rounded-lg shadow-primary">
                 <div className="text-center">
                   <div className="text-3xl font-bold">June</div>
                   <div className="text-sm">2025 Founded</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

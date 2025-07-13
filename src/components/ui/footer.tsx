@@ -18,11 +18,15 @@ export function Footer() {
               décor services in Randburg and across South Africa.
             </p>
             <div className="flex space-x-4">
-              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
-                <Facebook className="h-5 w-5" />
+              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110" asChild>
+                <a href="https://www.facebook.com/profile.php?id=61577944757885" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="h-5 w-5" />
+                </a>
               </HoverButton>
-              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
-                <Instagram className="h-5 w-5" />
+              <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110" asChild>
+                <a href="https://instagram.com/snn_events" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="h-5 w-5" />
+                </a>
               </HoverButton>
               <HoverButton variant="secondary" size="icon" className="hover:bg-brand-primary hover:text-white transition-all duration-300 hover:scale-110">
                 <Twitter className="h-5 w-5" />

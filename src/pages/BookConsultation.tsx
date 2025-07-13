@@ -54,11 +54,34 @@ export default function BookConsultation() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Consultation booking:", formData);
-    setIsSubmitted(true);
+    if (!validateForm()) {
+      // show error toast or feedback
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      // Prefill email body
+      const emailBody = `Name: ${formData.firstName}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AEvent Type: ${formData.eventType}%0D%0AEvent Date: ${formData.eventDate}%0D%0APreferred Time: ${formData.preferredTime}%0D%0AGuest Count: ${formData.guestCount}%0D%0ABudget: ${formData.budget}%0D%0AMessage: ${formData.message}`;
+      const mailtoLink = `mailto:info@snnevents.co.za?subject=New Book Consultation Submission&body=${emailBody}`;
+      window.location.href = mailtoLink;
+      setFormData({
+        firstName: "",
+        email: "",
+        phone: "",
+        eventType: "",
+        eventDate: "",
+        preferredTime: "",
+        guestCount: "",
+        budget: "",
+        message: "",
+      });
+    } catch (error) {
+      // show error toast or feedback
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -351,13 +374,13 @@ export default function BookConsultation() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-                                <h3 className="font-semibold text-brand-accent-light mb-2">Nono Dube</h3>
+                                <h3 className="font-semibold text-brand-accent-light mb-2">Nono</h3>
               <p className="text-brand-primary font-medium"><a href="tel:0649841362" className="hover:underline">0649841362</a></p>
               <p className="text-sm text-muted-foreground">Director & Event Planner</p>
             </div>
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-                                <h3 className="font-semibold text-brand-accent-light mb-2">Shanna Williams</h3>
+                                <h3 className="font-semibold text-brand-accent-light mb-2">Shanna</h3>
               <p className="text-brand-primary font-medium"><a href="tel:0719835562" className="hover:underline">0719835562</a></p>
               <p className="text-sm text-muted-foreground">Director & Event Coordinator</p>
             </div>

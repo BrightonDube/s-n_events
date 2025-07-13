@@ -142,37 +142,11 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Create email body
-      const emailBody = `
-New Contact Form Submission from S&N Events Website
-
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Event Type: ${formData.eventType}
-Event Date: ${formData.eventDate || 'Not specified'}
-Guest Count: ${formData.guestCount || 'Not specified'}
-Budget: ${formData.budget || 'Not specified'}
-
-Message:
-${formData.message}
-
----
-Submitted on: ${new Date().toLocaleString()}
-      `;
-
-      // Use mailto for now - in production, this would be replaced with a proper email service
-      // const mailtoLink = `mailto:info@snnevents.co.za?subject=New Contact Form Submission - ${formData.eventType}&body=${encodeURIComponent(emailBody)}`;
-      
-      // Open mailto link
-      // window.open(mailtoLink, '_blank');
-
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-      });
-
-      // Reset form
+      // Prefill email body
+      const emailBody = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AEvent Type: ${formData.eventType}%0D%0AEvent Date: ${formData.eventDate}%0D%0AGuest Count: ${formData.guestCount}%0D%0ABudget: ${formData.budget}%0D%0AMessage: ${formData.message}`;
+      const mailtoLink = `mailto:info@snnevents.co.za?subject=New Contact Form Submission&body=${emailBody}`;
+      window.location.href = mailtoLink;
+      // Optionally, show a toast or reset form
       setFormData({
         name: "",
         email: "",
@@ -186,7 +160,7 @@ Submitted on: ${new Date().toLocaleString()}
     } catch (error) {
       toast({
         title: "Error",
-        description: "There was an error sending your message. Please try again or contact us directly.",
+        description: "There was an error preparing your email. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {

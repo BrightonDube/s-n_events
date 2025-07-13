@@ -239,17 +239,12 @@ export default function Home() {
                   {heroSlides[currentSlide].subtitle}
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                  <Link to="/contact#contact-form">
+              <div className="flex justify-center animate-fade-in-up">
+                <Link to="/contact#contact-form">
                   <HoverButton className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </HoverButton>
                 </Link>
-                <Link to="/gallery">
-                  <HoverButton className="bg-white/80 backdrop-blur-lg hover:bg-white/90 text-brand-accent font-bold border border-white/70 shadow-xl drop-shadow-lg">
-                    View Our Work
-                  </HoverButton>
-                  </Link>
               </div>
             </div>
           </div>

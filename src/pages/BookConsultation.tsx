@@ -200,10 +200,10 @@ export default function BookConsultation() {
                     <div className="space-y-2">
                       <Label htmlFor="eventType">Event Type *</Label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-white">
                           <SelectValue placeholder="Select event type" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           {eventTypes.map((type) => (
                             <SelectItem key={type} value={type}>{type}</SelectItem>
                           ))}
@@ -234,10 +234,10 @@ export default function BookConsultation() {
                     <div className="space-y-2">
                       <Label htmlFor="budget">Budget Range (ZAR)</Label>
                       <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-white">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           <SelectItem value="under-50k">Under R50,000</SelectItem>
                           <SelectItem value="50k-100k">R50,000 - R100,000</SelectItem>
                           <SelectItem value="100k-200k">R100,000 - R200,000</SelectItem>
@@ -290,10 +290,10 @@ export default function BookConsultation() {
                     <div className="space-y-2">
                       <Label htmlFor="preferredTime">Preferred Time *</Label>
                       <Select value={formData.preferredTime} onValueChange={(value) => handleInputChange("preferredTime", value)}>
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-white">
                           <SelectValue placeholder="Select time" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           {timeSlots.map((time) => (
                             <SelectItem key={time} value={time}>{time}</SelectItem>
                           ))}
@@ -352,20 +352,20 @@ export default function BookConsultation() {
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
                                 <h3 className="font-semibold text-brand-accent-light mb-2">Nono Dube</h3>
-              <p className="text-brand-primary font-medium">0649841362</p>
+              <p className="text-brand-primary font-medium"><a href="tel:0649841362" className="hover:underline">0649841362</a></p>
               <p className="text-sm text-muted-foreground">Director & Event Planner</p>
             </div>
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
                                 <h3 className="font-semibold text-brand-accent-light mb-2">Shanna Williams</h3>
-              <p className="text-brand-primary font-medium">0719835562</p>
+              <p className="text-brand-primary font-medium"><a href="tel:0719835562" className="hover:underline">0719835562</a></p>
               <p className="text-sm text-muted-foreground">Director & Event Coordinator</p>
             </div>
           </div>
           <div className="text-center mt-8">
             <div className="flex items-center justify-center gap-2 text-brand-primary">
               <Mail className="h-5 w-5" />
-              <span className="font-medium">info@snnevents.co.za</span>
+              <span className="font-medium"><a href="mailto:info@snnevents.co.za" className="hover:underline">info@snnevents.co.za</a></span>
             </div>
           </div>
         </div>

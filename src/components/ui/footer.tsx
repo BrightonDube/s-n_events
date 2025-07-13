@@ -56,14 +56,7 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-lg text-brand-primary">Our Services</h4>
             <ul className="space-y-2">
-              {[
-                "Wedding Planning",
-                "Corporate Events",
-                "Private Parties",
-                "Baby Showers",
-                "Product Launches",
-                "Event Décor",
-              ].map((service) => (
+              {["Event Planning & Coordination","Small Company Gatherings","Private Celebrations","Mobile Bar Services","Personalized Catering","Event Décor & Setup"].map((service) => (
                 <li key={service}>
                   <span className="text-gray-300">{service}</span>
                 </li>
@@ -77,15 +70,15 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-300">0719835562 (Shanna)</span>
+                <a href="tel:0719835562" className="text-gray-300 hover:underline">0719835562 (Shanna)</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-300">0649841362 (Nono)</span>
+                <a href="tel:0649841362" className="text-gray-300 hover:underline">0649841362 (Nono)</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-brand-primary" />
-                <span className="text-gray-300">info@snnevents.co.za</span>
+                <a href="mailto:info@snnevents.co.za" className="text-gray-300 hover:underline">info@snnevents.co.za</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-brand-primary mt-1" />
@@ -103,7 +96,7 @@ export function Footer() {
             © {new Date().getFullYear()} S&N Events. All rights reserved.
           </p>
           <p className="text-gray-300 text-sm mt-4 md:mt-0">
-            Created by Brighton Dube
+            Created by <a href="http://bzeesolutions.online/" target="_blank" rel="noopener noreferrer" className="hover:underline">Brighton Dube</a>
           </p>
         </div>
       </div>

@@ -261,10 +261,10 @@ export default function FAQ() {
                 </p>
                 <div className="space-y-2">
                   <p className="text-brand-primary font-medium">
-                    Nono: 0649841362
+                    Nono: <a href="tel:0649841362" className="hover:underline">0649841362</a>
                   </p>
                   <p className="text-brand-primary font-medium">
-                    Shanna: 0719835562
+                    Shanna: <a href="tel:0719835562" className="hover:underline">0719835562</a>
                   </p>
                 </div>
               </CardContent>
@@ -278,7 +278,7 @@ export default function FAQ() {
                   Send us your questions and we'll respond within 24 hours
                 </p>
                 <p className="text-brand-primary font-medium">
-                  info@snnevents.co.za
+                  <a href="mailto:info@snnevents.co.za" className="hover:underline">info@snnevents.co.za</a>
                 </p>
               </CardContent>
             </Card>

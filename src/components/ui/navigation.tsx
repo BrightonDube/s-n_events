@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { HoverButton } from "@/components/ui/hover-button";
 import { cn } from "@/lib/utils";
+import snLogo from "@/assets/logo.png";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -23,8 +24,11 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="brand-font text-2xl text-brand-accent-light">
-            S&N Events
+          <Link to="/" className="flex items-center gap-x-2">
+            <img src={snLogo} alt="S&N Events Logo" className="h-10 w-auto" />
+            <h1 className="brand-font text-2xl text-brand-accent-light">
+            Events
+          </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -34,13 +38,25 @@ export function Navigation() {
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-primary",
+                  "relative px-4 py-2 rounded-full transition-all duration-300 font-medium group",
                   isActive(item.href)
-                    ? "text-brand-primary font-semibold"
-                    : "text-foreground"
+                    ? "bg-brand-primary/10 text-brand-primary font-semibold shadow-sm"
+                    : "text-foreground hover:text-brand-primary hover:bg-brand-primary/5"
                 )}
               >
-                {item.name}
+                <span
+                  className="inline-block transition-colors duration-300"
+                >
+                  {item.name}
+                </span>
+                <span
+                  className={cn(
+                    "absolute left-4 right-4 -bottom-1 h-0.5 bg-brand-primary rounded-full transition-transform duration-300 origin-left",
+                    (isActive(item.href) ? "scale-x-100" : "scale-x-0"),
+                    "group-hover:scale-x-100"
+                  )}
+                  aria-hidden="true"
+                />
               </Link>
             ))}
           </div>
@@ -87,15 +103,15 @@ export function Navigation() {
               <div className="px-3 py-2 space-y-2">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>0719835562 (Shanna)</span>
+                  <a href="tel:0719835562" className="hover:underline">0719835562 (Shanna)</a>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>0649841362 (Nono)</span>
+                  <a href="tel:0649841362" className="hover:underline">0649841362 (Nono)</a>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
-                  <span>info@snnevents.co.za</span>
+                  <a href="mailto:info@snnevents.co.za" className="hover:underline">info@snnevents.co.za</a>
                 </div>
                 <HoverButton variant="outline" className="w-full">
                   <Link to="/contact#contact-form" onClick={() => setIsOpen(false)}>

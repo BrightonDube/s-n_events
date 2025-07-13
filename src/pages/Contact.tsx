@@ -54,7 +54,7 @@ export default function Contact() {
 
   // Sanitize input to prevent XSS
   const sanitizeInput = (input: string): string => {
-    return input.trim().replace(/<script[^>]*>.*?<\/script>/gi, '').replace(/<[^>]*>/g, '');
+    return input.replace(/<script[^>]*>.*?<\/script>/gi, '').replace(/<[^>]*>/g, '');
   };
 
   // Validate email format
@@ -99,6 +99,15 @@ export default function Contact() {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
       newErrors.message = "Message must be at least 10 characters";
+    }
+
+    if (!formData.guestCount.trim()) {
+      newErrors.guestCount = "Guest count is required";
+    } else {
+      const guestNum = Number(formData.guestCount);
+      if (isNaN(guestNum) || guestNum < 1 || guestNum > 20) {
+        newErrors.guestCount = "Guest count must be between 1 and 20";
+      }
     }
 
     setErrors(newErrors);
@@ -273,10 +282,10 @@ Submitted on: ${new Date().toLocaleString()}
                   Event Type *
                 </label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
-                        <SelectTrigger className={errors.eventType ? "border-red-500" : ""}>
+                        <SelectTrigger className={`bg-white ${errors.eventType ? 'border-red-500' : ''}`}>
                           <SelectValue placeholder="Select event type" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-white">
                           <SelectItem value="private-reception">Private Reception</SelectItem>
                           <SelectItem value="curated-event">Curated Event</SelectItem>
                           <SelectItem value="select-gathering">Select Gathering</SelectItem>
@@ -303,20 +312,18 @@ Submitted on: ${new Date().toLocaleString()}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-brand-accent mb-2">
-                        Expected Guest Count
+                        Expected Guest Count *
                       </label>
-                      <Select value={formData.guestCount} onValueChange={(value) => handleInputChange("guestCount", value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Number of guests" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1-25">1-25 guests</SelectItem>
-                          <SelectItem value="26-50">26-50 guests</SelectItem>
-                          <SelectItem value="51-100">51-100 guests</SelectItem>
-                          <SelectItem value="101-200">101-200 guests</SelectItem>
-                          <SelectItem value="200+">200+ guests</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Input
+                        type="number"
+                        min={1}
+                        max={20}
+                        placeholder="1-20"
+                        value={formData.guestCount}
+                        onChange={(e) => handleInputChange("guestCount", e.target.value)}
+                        className={errors.guestCount ? "border-red-500" : ""}
+                      />
+                      {errors.guestCount && <p className="text-red-500 text-sm mt-1">{errors.guestCount}</p>}
                     </div>
                   </div>
 
@@ -325,10 +332,10 @@ Submitted on: ${new Date().toLocaleString()}
                       Budget Range
                     </label>
                     <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-white">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white">
                         <SelectItem value="under-10k">Under R10,000</SelectItem>
                         <SelectItem value="10k-25k">R10,000 - R25,000</SelectItem>
                         <SelectItem value="25k-50k">R25,000 - R50,000</SelectItem>
@@ -395,7 +402,13 @@ Submitted on: ${new Date().toLocaleString()}
                           <div className="space-y-1">
                             {info.details.map((detail, detailIndex) => (
                               <p key={detailIndex} className="text-muted-foreground">
-                                {detail}
+                                {info.title === "Email" ? (
+                                  <a href={`mailto:${detail}`} className="hover:underline">{detail}</a>
+                                ) : info.title === "Phone" ? (
+                                  <a href={`tel:${detail}`} className="hover:underline">{detail}</a>
+                                ) : (
+                                  detail
+                                )}
                               </p>
                             ))}
                           </div>

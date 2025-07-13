@@ -159,31 +159,31 @@ export default function Home() {
     <div className="pt-16">
       {/* Service Detail Modal */}
       <Dialog open={!!selectedService} onOpenChange={(open) => !open && setSelectedService(null)}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] bg-white rounded-xl">
           <DialogHeader>
             <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl font-serif text-brand-accent flex items-center">
-                <span className="text-3xl mr-2">{selectedService?.icon}</span>
-                {selectedService?.title}
-              </DialogTitle>
-              <DialogClose className="h-6 w-6 text-muted-foreground hover:text-brand-accent">
-                <X className="h-6 w-6" />
-              </DialogClose>
-            </div>
-            <DialogDescription className="text-lg text-muted-foreground pt-2">
-              {selectedService?.description}
-            </DialogDescription>
-          </DialogHeader>
+                              <DialogTitle className="text-2xl font-serif text-brand-accent-light flex items-center">
+                  <span className="text-3xl mr-2">{selectedService?.icon}</span>
+                  {selectedService?.title}
+                </DialogTitle>
+                <DialogClose className="h-6 w-6 text-muted-foreground hover:text-brand-accent-light">
+                  <X className="h-6 w-6" />
+                </DialogClose>
+              </div>
+              <DialogDescription className="text-lg text-muted-foreground pt-2">
+                {selectedService?.description}
+              </DialogDescription>
+            </DialogHeader>
 
-          <div className="mt-4 space-y-6">
-            <div>
-              <p className="text-muted-foreground leading-relaxed">
-                {selectedService?.details.fullDescription}
-              </p>
-            </div>
+            <div className="mt-4 space-y-6">
+              <div>
+                <p className="text-muted-foreground leading-relaxed">
+                  {selectedService?.details.fullDescription}
+                </p>
+              </div>
 
-            <div>
-              <h4 className="text-lg font-medium text-brand-accent mb-2">What We Offer:</h4>
+              <div>
+                <h4 className="text-lg font-medium text-brand-accent-light mb-2">What We Offer:</h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                 {selectedService?.details.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -194,15 +194,15 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-brand-cream/30 p-4 rounded-md">
-              <p className="text-sm text-brand-accent">
-                <span className="font-medium">Planning Timeline: </span>
-                {selectedService?.details.timeline}
-              </p>
-            </div>
+                          <div className="bg-brand-cream/30 p-4 rounded-md">
+                <p className="text-sm text-brand-accent-light">
+                  <span className="font-medium">Planning Timeline: </span>
+                  {selectedService?.details.timeline}
+                </p>
+              </div>
 
             <div className="pt-4 flex justify-center">
-              <Link to="/contact">
+              <Link to="/contact#contact-form">
                 <HoverButton className="bg-gradient-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                   Request Quote
                 </HoverButton>
@@ -240,7 +240,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
-                  <Link to="/contact">
+                  <Link to="/contact#contact-form">
                   <HoverButton className="bg-brand-primary/95 backdrop-blur-lg hover:bg-brand-primary hover:shadow-primary text-brand-accent font-bold border border-brand-accent shadow-xl drop-shadow-lg">
                     Book Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </HoverButton>
@@ -287,15 +287,15 @@ export default function Home() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-accent mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-brand-accent-light mb-6">
               Premier Events Company in Randburg
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Founded in June 2025, <span className="brand-font text-brand-accent">S&N Events</span> brings fresh perspectives and innovative ideas to
+              Founded in June 2025, <span className="brand-font text-brand-accent-light">S&N Events</span> brings fresh perspectives and innovative ideas to
               event planning across South Africa. We specialize in turning your vision into
               reality with meticulous planning, creative design, and flawless execution.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full justify-items-center">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-brand-primary mb-2">
@@ -313,7 +313,7 @@ export default function Home() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-4">
               Our Signature Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -322,21 +322,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center place-content-center">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 w-full max-w-sm">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4 group-hover:animate-float">
                     {service.icon}
                   </div>
-                  <h3 className="font-semibold text-xl text-brand-accent mb-3">
+                  <h3 className="font-semibold text-xl text-brand-accent-light mb-3">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-4">
                     {service.description}
                   </p>
                   <HoverButton
-                    className="text-brand-primary hover:text-brand-accent"
+                    className="text-brand-primary hover:text-brand-accent-light"
                     onClick={() => setSelectedService(service)}
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
@@ -346,7 +346,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="flex justify-center w-full mt-12">
               <Link to="/services">
               <HoverButton className="bg-gradient-primary text-white hover:shadow-elegant">
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
@@ -360,7 +360,7 @@ export default function Home() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-4">
               Why Choose <span className="brand-font">S&N Events</span>?
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -368,11 +368,11 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center border-t-4 border-t-brand-primary">
+              <Card key={index} className="text-center border-t-4 border-t-brand-primary w-full">
                 <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-brand-accent mb-2">
+                  <div className="text-3xl font-bold text-brand-accent-light mb-2">
                     {stat.number}
                   </div>
                   <p className="text-muted-foreground font-medium">
@@ -385,7 +385,7 @@ export default function Home() {
           
           <div className="text-center mt-12">
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              At <span className="brand-font text-brand-accent">S&N Events</span>, we believe that small gatherings have huge impact. With a focus on personalized service and attention to detail, every guest is VIP. From private celebrations to executive meetings, we create unforgettable experiences that exceed expectations.
+              At <span className="brand-font text-brand-accent-light">S&N Events</span>, we believe that small gatherings have huge impact. With a focus on personalized service and attention to detail, every guest is VIP. From private celebrations to executive meetings, we create unforgettable experiences that exceed expectations.
             </p>
           </div>
         </div>
@@ -401,7 +401,7 @@ export default function Home() {
             Let us help you create memories that will last a lifetime. Our personalized approach ensures every detail reflects your unique vision for your Select Gathering.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+              <Link to="/contact#contact-form">
               <HoverButton className="cta-button font-semibold border border-white">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation

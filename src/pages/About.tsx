@@ -9,14 +9,14 @@ const teamMembers = [
     name: "Nono",
     role: "Co-Director",
     phone: "+27 64 984 1362",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    image: "https://via.placeholder.com/400x400/ED85A7/FFFFFF?text=Nono",
     bio: "Nono specializes in intimate event coordination and client relations, bringing passion and dedication to creating exclusive experiences for Private Receptions and boutique celebrations."
   },
   {
     name: "Shanna", 
     role: "Co-Director",
     phone: "+27 71 983 5562",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    image: "https://via.placeholder.com/400x400/ED85A7/FFFFFF?text=Shanna",
     bio: "Shanna's creative vision and attention to detail specialize in personalized catering, mobile bar services, and beautiful décor setups that make every intimate gathering special."
   }
 ];
@@ -48,7 +48,7 @@ export default function About() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
+      <HoverBackground className="h-[60vh] flex items-center justify-center" colors={{ background: 'bg-gradient-to-br from-rose-900 via-pink-900 to-rose-900', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,12 +57,12 @@ export default function About() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 text-white mt-12"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-brand-accent text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-white text-center">
             About <span className="brand-font">S&N Events</span>
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-white">
             Founded in June 2025, we specialize in creating intimate, boutique celebrations that prioritize every guest's experience
           </p>
         </motion.div>
@@ -73,12 +73,12 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-4xl font-bold text-brand-accent mb-6">
+              <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-6">
                 Our Story
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Nono and Shanna founded <span className="brand-font text-brand-accent">S&N Events</span> in June 2025 with a focused vision: 
+                  Nono and Shanna founded <span className="brand-font text-brand-accent-light">S&N Events</span> in June 2025 with a focused vision: 
                   to create intimate, exclusive experiences for Private Receptions and Select Gatherings. 
                   We believe that small gatherings have huge impact, and our specialized approach 
                   ensures every guest receives VIP treatment.
@@ -121,7 +121,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <Card className="border-l-4 border-l-brand-primary">
               <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-bold text-brand-accent mb-4">
+                <h3 className="font-serif text-2xl font-bold text-brand-accent-light mb-4">
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -135,7 +135,7 @@ export default function About() {
             
             <Card className="border-l-4 border-l-brand-accent">
               <CardContent className="p-8">
-                <h3 className="font-serif text-2xl font-bold text-brand-accent mb-4">
+                <h3 className="font-serif text-2xl font-bold text-brand-accent-light mb-4">
                   Our Vision
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -154,7 +154,7 @@ export default function About() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-4">
               Our Core Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -170,7 +170,7 @@ export default function About() {
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-primary/10 rounded-full mb-4">
                     <value.icon className="h-8 w-8 text-brand-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl text-brand-accent mb-3">
+                  <h3 className="font-semibold text-xl text-brand-accent-light mb-3">
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -187,7 +187,7 @@ export default function About() {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
+            <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-4">
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -198,7 +198,7 @@ export default function About() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-elegant transition-all duration-300 w-full md:w-[380px] mx-auto">
+              <Card key={index} className="overflow-hidden hover:shadow-elegant transition-all duration-300 w-full max-w-sm mx-auto">
                 <div className="aspect-square overflow-hidden">
                   <img
                     src={member.image}
@@ -206,8 +206,8 @@ export default function About() {
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-xl text-brand-accent mb-1">
+                <CardContent className="p-6 text-center">
+                  <h3 className="font-semibold text-xl text-brand-accent-light mb-1">
                     {member.name}
                   </h3>
                   <p className="text-brand-primary mb-3 font-medium">

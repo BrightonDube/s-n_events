@@ -333,7 +333,7 @@ export default function Blog() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
+      <HoverBackground className="h-[60vh] flex items-center justify-center" colors={{ background: 'bg-gradient-to-br from-rose-900 via-pink-900 to-rose-900', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -342,45 +342,16 @@ export default function Blog() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 text-white mt-12"
         >
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-white text-center">
             Event Planning Blog
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-white">
             Tips, trends, and insights for creating unforgettable intimate celebrations
           </p>
         </motion.div>
       </HoverBackground>
-
-      {/* Search and Filter */}
-      <section className="py-8 bg-brand-cream">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <HoverButton
-                  key={category}
-                  variant={selectedCategory === category ? "primary" : "secondary"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </HoverButton>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Blog Posts */}
       <section className="py-16">
@@ -410,7 +381,7 @@ export default function Blog() {
                       </div>
                     </div>
 
-                    <h3 className="font-serif text-xl font-bold text-brand-accent mb-3 line-clamp-2">
+                    <h3 className="font-serif text-xl font-bold text-brand-accent-light mb-3 line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -455,7 +426,7 @@ export default function Blog() {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <h3 className="text-xl font-semibold text-brand-accent mb-2">
+              <h3 className="text-xl font-semibold text-brand-accent-light mb-2">
                 No articles found
               </h3>
               <p className="text-muted-foreground">
@@ -486,7 +457,7 @@ export default function Blog() {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 overflow-y-auto">
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center z-10">
-              <h2 className="font-serif text-2xl font-bold text-brand-accent">{selectedPost.title}</h2>
+              <h2 className="font-serif text-2xl font-bold text-brand-accent-light">{selectedPost.title}</h2>
               <HoverButton 
                 variant="secondary" 
                 size="icon" 

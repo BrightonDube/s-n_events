@@ -37,7 +37,6 @@ export function Footer() {
               {[
                 { name: "About Us", href: "/about" },
                 { name: "Our Services", href: "/services" },
-                { name: "Portfolio", href: "/gallery" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
               ].map((link) => (

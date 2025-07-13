@@ -8,7 +8,6 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Gallery", href: "/gallery" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -24,7 +23,7 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="brand-font text-2xl text-brand-accent">
+          <Link to="/" className="brand-font text-2xl text-brand-accent-light">
             S&N Events
           </Link>
 
@@ -52,7 +51,7 @@ export function Navigation() {
               variant="primary"
               className="shadow-primary transition-all duration-300"
             >
-              <Link to="/contact">Book Consultation</Link>
+              <Link to="/contact#contact-form">Book Consultation</Link>
             </HoverButton>
           </div>
 
@@ -69,7 +68,7 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -99,7 +98,7 @@ export function Navigation() {
                   <span>info@snnevents.co.za</span>
                 </div>
                 <HoverButton variant="outline" className="w-full">
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Link to="/contact#contact-form" onClick={() => setIsOpen(false)}>
                     Book Consultation
                   </Link>
                 </HoverButton>

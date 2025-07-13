@@ -13,7 +13,7 @@ const Markdown: React.FC<MarkdownProps> = ({ children, className }) => {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          strong: (props) => <strong className="font-semibold text-brand-accent" {...props} />,
+          strong: (props) => <strong className="font-semibold text-brand-accent-light" {...props} />,
           em: (props) => <em className="italic text-brand-primary" {...props} />,
           ul: (props) => <ul className="list-disc ml-6 my-2" {...props} />,
           ol: (props) => <ol className="list-decimal ml-6 my-2" {...props} />,

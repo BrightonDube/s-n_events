@@ -96,6 +96,7 @@ All colors MUST be HSL.
   --color-brand-primary-light: 340 82% 75%;
   --color-brand-secondary: 340 60% 85%;
   --color-brand-accent: 340 35% 22%; /* Equivalent to #3F232C - Used for logo text and dark accents */
+  --color-brand-accent-light: 340 20% 40%; /* Lighter version for better readability */
   --color-brand-cream: 340 20% 96%;
   --color-brand-white: 0 0% 100%;
   --color-brand-cta: #ED85A7; /* Call-to-action section background */

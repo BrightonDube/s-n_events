@@ -188,7 +188,7 @@ Submitted on: ${new Date().toLocaleString()}
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
+      <HoverBackground className="h-[60vh] flex items-center justify-center" colors={{ background: 'bg-gradient-to-br from-rose-900 via-pink-900 to-rose-900', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,12 +197,12 @@ Submitted on: ${new Date().toLocaleString()}
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 text-white mt-12"
         >
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-white text-center">
             Contact Us
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-white">
             Ready to start planning your perfect event? Get in touch with our team 
             for a free consultation and personalized quote.
           </p>
@@ -214,7 +214,7 @@ Submitted on: ${new Date().toLocaleString()}
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant" id="contact-form">
               <CardHeader>
                 <CardTitle className="font-serif text-2xl text-brand-accent">
                   Send Us a Message
@@ -227,9 +227,9 @@ Submitted on: ${new Date().toLocaleString()}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-brand-accent mb-2">
-                        Full Name *
-                      </label>
+                                      <label className="block text-sm font-medium text-brand-accent-light mb-2">
+                  Full Name *
+                </label>
                       <Input
                         required
                         value={formData.name}
@@ -240,9 +240,9 @@ Submitted on: ${new Date().toLocaleString()}
                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-brand-accent mb-2">
-                        Email Address *
-                      </label>
+                                      <label className="block text-sm font-medium text-brand-accent-light mb-2">
+                  Email Address *
+                </label>
                       <Input
                         type="email"
                         required
@@ -269,9 +269,9 @@ Submitted on: ${new Date().toLocaleString()}
                       {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-brand-accent mb-2">
-                        Event Type *
-                      </label>
+                                      <label className="block text-sm font-medium text-brand-accent-light mb-2">
+                  Event Type *
+                </label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
                         <SelectTrigger className={errors.eventType ? "border-red-500" : ""}>
                           <SelectValue placeholder="Select event type" />
@@ -369,9 +369,9 @@ Submitted on: ${new Date().toLocaleString()}
             {/* Contact Information */}
             <div className="space-y-6">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-brand-accent mb-6">
-                  Get In Touch
-                </h2>
+                          <h2 className="font-serif text-3xl font-bold text-brand-accent-light mb-6">
+            Get In Touch
+          </h2>
                 <p className="text-muted-foreground mb-8">
                   We're here to help make your event dreams come true. Contact us 
                   through any of the methods below and we'll respond promptly.
@@ -389,9 +389,9 @@ Submitted on: ${new Date().toLocaleString()}
                           </div>
                         </div>
                         <div>
-                          <h3 className="font-semibold text-brand-accent mb-2">
-                            {info.title}
-                          </h3>
+                                          <h3 className="font-semibold text-brand-accent-light mb-2">
+                  {info.title}
+                </h3>
                           <div className="space-y-1">
                             {info.details.map((detail, detailIndex) => (
                               <p key={detailIndex} className="text-muted-foreground">
@@ -442,9 +442,9 @@ Submitted on: ${new Date().toLocaleString()}
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl font-bold text-brand-accent mb-4">
-              Visit Our Office
-            </h2>
+                      <h2 className="font-serif text-4xl font-bold text-brand-accent-light mb-4">
+            Visit Our Office
+          </h2>
             <p className="text-lg text-muted-foreground">
               Located in the heart of Randburg, we're easily accessible for consultations
             </p>
@@ -493,7 +493,7 @@ Submitted on: ${new Date().toLocaleString()}
               <CardContent className="p-8">
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 text-center">
-                    <span className="font-medium text-brand-accent">Every Day</span>
+                    <span className="font-medium text-brand-accent-light">Every Day</span>
                     <span className="text-brand-primary font-semibold">7:00 AM - 11:00 PM</span>
                   </div>
                   <p className="text-sm text-muted-foreground mt-4 text-center">

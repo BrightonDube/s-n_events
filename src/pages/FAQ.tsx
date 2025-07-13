@@ -123,7 +123,7 @@ export default function FAQ() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
+      <HoverBackground className="h-[60vh] flex items-center justify-center" colors={{ background: 'bg-gradient-to-br from-rose-900 via-pink-900 to-rose-900', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,12 +132,12 @@ export default function FAQ() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 text-white mt-12"
         >
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-white text-center">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-white">
             Find answers to common questions about our intimate event planning services
           </p>
         </motion.div>
@@ -230,9 +230,9 @@ export default function FAQ() {
       <section className="py-16 bg-brand-cream">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-accent mb-6">
-              Still Have Questions?
-            </h2>
+                      <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-accent-light mb-6">
+            Still Have Questions?
+          </h2>
             <p className="text-lg text-muted-foreground mb-8">
               Can't find the answer you're looking for? Our team is here to help!
             </p>
@@ -255,7 +255,7 @@ export default function FAQ() {
             <Card>
               <CardContent className="p-6 text-center">
                 <div className="text-4xl mb-4">📞</div>
-                <h3 className="font-semibold text-brand-accent mb-2">Call Us</h3>
+                <h3 className="font-semibold text-brand-accent-light mb-2">Call Us</h3>
                 <p className="text-muted-foreground mb-4">
                   Speak directly with our event planning experts
                 </p>
@@ -273,7 +273,7 @@ export default function FAQ() {
             <Card>
               <CardContent className="p-6 text-center">
                 <div className="text-4xl mb-4">📧</div>
-                <h3 className="font-semibold text-brand-accent mb-2">Email Us</h3>
+                <h3 className="font-semibold text-brand-accent-light mb-2">Email Us</h3>
                 <p className="text-muted-foreground mb-4">
                   Send us your questions and we'll respond within 24 hours
                 </p>

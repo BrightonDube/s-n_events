@@ -67,7 +67,7 @@ export default function BookConsultation() {
         <Card className="max-w-md mx-auto m-4">
           <CardContent className="text-center p-8">
             <CheckCircle className="h-16 w-16 text-brand-primary mx-auto mb-4" />
-            <h2 className="font-serif text-2xl font-bold text-brand-accent mb-4">
+            <h2 className="font-serif text-2xl font-bold text-brand-accent-light mb-4">
               Consultation Booked!
             </h2>
             <p className="text-muted-foreground mb-6">
@@ -85,7 +85,7 @@ export default function BookConsultation() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <HoverBackground className="h-[60vh]" colors={{ background: 'bg-gradient-to-br from-brand-accent to-brand-primary', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
+      <HoverBackground className="h-[60vh] flex items-center justify-center" colors={{ background: 'bg-gradient-to-br from-rose-900 via-pink-900 to-rose-900', objects: ['bg-pink-400/20', 'bg-rose-400/20', 'bg-fuchsia-400/20', 'bg-violet-400/20', 'bg-red-400/20'], glow: 'shadow-pink-400/50' }}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,12 +94,12 @@ export default function BookConsultation() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 text-white mt-12"
         >
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-brand-accent text-center">
+          <h1 className="font-serif text-5xl md:text-6xl font-bold text-white text-center">
             Book Your Free Consultation
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-muted-foreground">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-white">
             Let's discuss your vision and create the perfect intimate celebration together
           </p>
         </motion.div>
@@ -111,17 +111,17 @@ export default function BookConsultation() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
               <Clock className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-accent mb-2">Free Consultation</h3>
+                              <h3 className="font-semibold text-brand-accent-light mb-2">Free Consultation</h3>
               <p className="text-sm text-muted-foreground">60-minute complimentary session</p>
             </div>
             <div className="text-center">
               <Users className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-accent mb-2">Expert Guidance</h3>
+                              <h3 className="font-semibold text-brand-accent-light mb-2">Expert Guidance</h3>
               <p className="text-sm text-muted-foreground">Professional event planning advice</p>
             </div>
             <div className="text-center">
               <MapPin className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-accent mb-2">Flexible Location</h3>
+                              <h3 className="font-semibold text-brand-accent-light mb-2">Flexible Location</h3>
               <p className="text-sm text-muted-foreground">Virtual, in-person, or venue visits</p>
             </div>
           </div>
@@ -351,13 +351,13 @@ export default function BookConsultation() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-accent mb-2">Nono Dube</h3>
+                                <h3 className="font-semibold text-brand-accent-light mb-2">Nono Dube</h3>
               <p className="text-brand-primary font-medium">0649841362</p>
               <p className="text-sm text-muted-foreground">Director & Event Planner</p>
             </div>
             <div className="text-center">
               <Phone className="h-8 w-8 text-brand-primary mx-auto mb-3" />
-              <h3 className="font-semibold text-brand-accent mb-2">Shanna Williams</h3>
+                                <h3 className="font-semibold text-brand-accent-light mb-2">Shanna Williams</h3>
               <p className="text-brand-primary font-medium">0719835562</p>
               <p className="text-sm text-muted-foreground">Director & Event Coordinator</p>
             </div>

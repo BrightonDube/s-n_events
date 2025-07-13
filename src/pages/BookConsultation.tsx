@@ -49,9 +49,23 @@ export default function BookConsultation() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const validateForm = () => {
+    if (!formData.firstName.trim()) return false;
+    if (!formData.lastName.trim()) return false;
+    if (!formData.email.trim() || !/^[^@]+@[^@]+\.[^@]+$/.test(formData.email)) return false;
+    if (!formData.phone.trim()) return false;
+    if (!formData.eventType.trim()) return false;
+    if (!formData.eventDate.trim()) return false;
+    if (!formData.preferredTime.trim()) return false;
+    if (!formData.guestCount.trim() || isNaN(Number(formData.guestCount)) || Number(formData.guestCount) < 1 || Number(formData.guestCount) > 20) return false;
+    if (!formData.message.trim() || formData.message.trim().length < 10) return false;
+    return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -68,13 +82,16 @@ export default function BookConsultation() {
       window.location.href = mailtoLink;
       setFormData({
         firstName: "",
+        lastName: "",
         email: "",
         phone: "",
         eventType: "",
         eventDate: "",
-        preferredTime: "",
         guestCount: "",
         budget: "",
+        consultationMode: "",
+        preferredDate: "",
+        preferredTime: "",
         message: "",
       });
     } catch (error) {

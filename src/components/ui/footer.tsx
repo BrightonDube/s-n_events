@@ -60,7 +60,7 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold text-lg text-brand-primary">Our Services</h4>
             <ul className="space-y-2">
-              {["Event Planning & Coordination","Small Company Gatherings","Private Celebrations","Mobile Bar Services","Personalized Catering","Event Décor & Setup"].map((service) => (
+              {["Event Planning & Coordination","Small Company Gatherings","Private Celebrations","Mobile Bar Services","Personalized Catering","Personalized Gifting","Event Décor & Setup"].map((service) => (
                 <li key={service}>
                   <span className="text-gray-300">{service}</span>
                 </li>

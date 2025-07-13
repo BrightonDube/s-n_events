@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HoverButton } from "@/components/ui/hover-button"
+import { toast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar, Clock, Users, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { HoverBackground } from '@/components/ui/hover-velocity-hero';
 
 const eventTypes = [
@@ -50,28 +52,96 @@ export default function BookConsultation() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [invalidHistory, setInvalidHistory] = useState<Record<string, boolean>>({});
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
+  const validateField = (field: string, value: string): boolean => {
+    switch (field) {
+      case "firstName":
+      case "lastName":
+        return !value.trim();
+      case "email":
+        return !value.trim() || !/^[^@]+@[^@]+\.[^@]+$/.test(value);
+      case "phone":
+        // South African numbers: +27xxxxxxxxx or 0xxxxxxxxx where x is digit and total 9 digits after prefix
+        return !value.trim() || !/^(\+27|0)[1-9][0-9]{8}$/.test(value);
+      case "eventType":
+      case "eventDate":
+      case "preferredTime":
+        return !value.trim();
+      case "guestCount":
+        return (
+          !value.trim() ||
+          isNaN(Number(value)) ||
+          Number(value) < 1 ||
+          Number(value) > 20
+        );
+      case "message":
+        return !value.trim() || value.trim().length < 10;
+      default:
+        return false;
+    }
+  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    setTouched(prev => ({ ...prev, [field]: true }));
+
+    const isInvalid = validateField(field, value);
+    setErrors(prev => ({ ...prev, [field]: isInvalid }));
+
+    if (isInvalid) {
+      setInvalidHistory(prev => ({ ...prev, [field]: true }));
+    }
   };
 
   const validateForm = () => {
-    if (!formData.firstName.trim()) return false;
-    if (!formData.lastName.trim()) return false;
-    if (!formData.email.trim() || !/^[^@]+@[^@]+\.[^@]+$/.test(formData.email)) return false;
-    if (!formData.phone.trim()) return false;
-    if (!formData.eventType.trim()) return false;
-    if (!formData.eventDate.trim()) return false;
-    if (!formData.preferredTime.trim()) return false;
-    if (!formData.guestCount.trim() || isNaN(Number(formData.guestCount)) || Number(formData.guestCount) < 1 || Number(formData.guestCount) > 20) return false;
-    if (!formData.message.trim() || formData.message.trim().length < 10) return false;
-    return true;
+    const fields = [
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+      "eventType",
+      "eventDate",
+      "preferredTime",
+      "guestCount",
+      "message",
+    ];
+
+    const newErrors: Record<string, boolean> = {};
+    fields.forEach((field) => {
+      // @ts-ignore
+      const value = formData[field];
+      newErrors[field] = validateField(field, value);
+      if (newErrors[field]) {
+        setInvalidHistory((prev) => ({ ...prev, [field]: true }));
+      }
+    });
+
+    setErrors(newErrors);
+    return newErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) {
-      // show error toast or feedback
+    setSubmitAttempted(true);
+    const fieldErrors = validateForm();
+    if (Object.values(fieldErrors).some((v) => v)) {
+      toast({
+        title: "Incomplete form",
+        description: "Please complete the highlighted fields before submitting.",
+      });
+      const firstInvalidField = Object.keys(fieldErrors).find((key) => fieldErrors[key]);
+      if (firstInvalidField) {
+        const el = document.getElementById(firstInvalidField);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          // @ts-ignore
+          el.focus?.();
+        }
+      }
       return;
     }
     setIsSubmitting(true);
@@ -80,6 +150,12 @@ export default function BookConsultation() {
       const emailBody = `Name: ${formData.firstName}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AEvent Type: ${formData.eventType}%0D%0AEvent Date: ${formData.eventDate}%0D%0APreferred Time: ${formData.preferredTime}%0D%0AGuest Count: ${formData.guestCount}%0D%0ABudget: ${formData.budget}%0D%0AMessage: ${formData.message}`;
       const mailtoLink = `mailto:info@snnevents.co.za?subject=New Book Consultation Submission&body=${emailBody}`;
       window.location.href = mailtoLink;
+      setIsSubmitted(true);
+      // Reset validation state so borders return to default
+      setErrors({});
+      setTouched({});
+      setInvalidHistory({});
+      setSubmitAttempted(false);
       setFormData({
         firstName: "",
         lastName: "",
@@ -95,7 +171,10 @@ export default function BookConsultation() {
         message: "",
       });
     } catch (error) {
-      // show error toast or feedback
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -121,6 +200,18 @@ export default function BookConsultation() {
       </div>
     );
   }
+
+  // Helper to decide border colour
+  const fieldClass = (field: string, base?: string) => {
+    const invalid = errors[field];
+    const hasBeenInvalid = invalidHistory[field];
+    return cn(
+      base,
+      (submitAttempted || touched[field]) && invalid && "border-2 border-red-500 focus-visible:ring-red-500",
+      touched[field] && !invalid && hasBeenInvalid &&
+        "border-2 border-green-500 focus-visible:ring-green-500"
+    );
+  };
 
   return (
     <div className="pt-16">
@@ -190,6 +281,7 @@ export default function BookConsultation() {
                         value={formData.firstName}
                         onChange={(e) => handleInputChange("firstName", e.target.value)}
                         required
+                        className={fieldClass("firstName")}
                       />
                     </div>
                     <div className="space-y-2">
@@ -199,6 +291,7 @@ export default function BookConsultation() {
                         value={formData.lastName}
                         onChange={(e) => handleInputChange("lastName", e.target.value)}
                         required
+                        className={fieldClass("lastName")}
                       />
                     </div>
                   </div>
@@ -211,6 +304,7 @@ export default function BookConsultation() {
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         required
+                        className={fieldClass("email")}
                       />
                     </div>
                     <div className="space-y-2">
@@ -221,6 +315,7 @@ export default function BookConsultation() {
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         required
+                        className={fieldClass("phone")}
                       />
                     </div>
                   </div>
@@ -240,7 +335,10 @@ export default function BookConsultation() {
                     <div className="space-y-2">
                       <Label htmlFor="eventType">Event Type *</Label>
                       <Select value={formData.eventType} onValueChange={(value) => handleInputChange("eventType", value)}>
-                        <SelectTrigger className="bg-white">
+                        <SelectTrigger
+                          id="eventType"
+                          className={fieldClass("eventType", "bg-white")}
+                        >
                           <SelectValue placeholder="Select event type" />
                         </SelectTrigger>
                         <SelectContent className="bg-white">
@@ -251,30 +349,37 @@ export default function BookConsultation() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="eventDate">Proposed Event Date</Label>
+                      <Label htmlFor="eventDate">Proposed Event Date *</Label>
                       <Input
                         id="eventDate"
                         type="date"
                         value={formData.eventDate}
                         onChange={(e) => handleInputChange("eventDate", e.target.value)}
+                        required
+                        className={fieldClass("eventDate")}
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="guestCount">Expected Guest Count</Label>
+                      <Label htmlFor="guestCount">Expected Guest Count *</Label>
                       <Input
                         id="guestCount"
                         type="number"
-                        placeholder="e.g., 50"
+                        placeholder="e.g., 10"
                         value={formData.guestCount}
                         onChange={(e) => handleInputChange("guestCount", e.target.value)}
+                        required
+                        className={fieldClass("guestCount")}
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="budget">Budget Range (ZAR)</Label>
                       <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                        <SelectTrigger className="bg-white">
+                        <SelectTrigger
+                          id="budget"
+                          className={fieldClass("budget", "bg-white")}
+                        >
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
                         <SelectContent className="bg-white">
@@ -325,12 +430,16 @@ export default function BookConsultation() {
                         value={formData.preferredDate}
                         onChange={(e) => handleInputChange("preferredDate", e.target.value)}
                         required
+                        className={fieldClass("preferredDate")}
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="preferredTime">Preferred Time *</Label>
                       <Select value={formData.preferredTime} onValueChange={(value) => handleInputChange("preferredTime", value)}>
-                        <SelectTrigger className="bg-white">
+                        <SelectTrigger
+                          id="preferredTime"
+                          className={fieldClass("preferredTime", "bg-white")}
+                        >
                           <SelectValue placeholder="Select time" />
                         </SelectTrigger>
                         <SelectContent className="bg-white">
@@ -351,13 +460,15 @@ export default function BookConsultation() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Tell us about your vision</Label>
+                    <Label htmlFor="message">Tell us about your vision *</Label>
                     <Textarea
                       id="message"
                       placeholder="Share any specific requirements, themes, or ideas you have in mind..."
                       value={formData.message}
                       onChange={(e) => handleInputChange("message", e.target.value)}
                       rows={4}
+                      required
+                      className={fieldClass("message")}
                     />
                   </div>
                 </CardContent>

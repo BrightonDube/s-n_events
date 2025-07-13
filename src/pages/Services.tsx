@@ -1,4 +1,4 @@
-import { Check, Target, Users, PartyPopper, Wine, ChefHat, Palette } from "lucide-react";
+import { Check, Target, Users, PartyPopper, Wine, ChefHat, Palette, Gift } from "lucide-react";
 import { HoverButton } from "@/components/ui/hover-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -86,6 +86,23 @@ const services = [
       "Table service coordination",
       "Special occasion cake coordination",
       "Beverage pairing recommendations"
+    ],
+
+    popular: false
+  },
+  {
+    icon: Gift,
+    title: "Personalized Gifting & Favors",
+    description: "Custom curated gifts and favors that leave a lasting impression on your guests",
+    features: [
+      "Concept & idea sourcing",
+      "Personalized packaging & branding",
+      "Local artisan & supplier sourcing",
+      "Theme-based gift curation",
+      "Eco-friendly & sustainable options",
+      "Assembly and quality control",
+      "Delivery or on-site placement",
+      "Budget tracking & management"
     ],
 
     popular: false

@@ -22,13 +22,13 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-x-2">
-            <img src={snLogo} alt="S&N Events Logo" className="h-10 w-auto" />
-            <h1 className="brand-font text-2xl text-brand-accent-light">
-            Events
-          </h1>
+            <img src={snLogo} alt="S&N Events Logo" className="h-18 w-auto" />
+            {/* <h1 className="brand-font text-2xl text-brand-accent-light">
+            S&N Events
+          </h1> */}
           </Link>
 
           {/* Desktop Navigation */}
